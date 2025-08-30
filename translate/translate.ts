@@ -5,15 +5,15 @@ namespace $ {
 		params: ()=> ({ temperature: 0 })
 	})
 	
-	const $hyoo_lingua_translate_api = [
+	const $hd_linguist_translate_api = [
 		( $:$, lang, text )=> github_llm_translator.shot({ lang, text }).text,
 	] as readonly( ( $: $, lang: string, text: string )=> string )[]
 	
-	export function $hyoo_lingua_translate( this: $, lang: string, text: string ) {
+	export function $hd_linguist_translate( this: $, lang: string, text: string ) {
 		
 		if( !text.trim() ) return ''
 		
-		const apis = $mol_array_shuffle_sync( $hyoo_lingua_translate_api )
+		const apis = $mol_array_shuffle_sync( $hd_linguist_translate_api )
 		for( const fetch of apis ) {
 			try {
 

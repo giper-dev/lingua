@@ -1,8 +1,8 @@
 namespace $.$$ {
-	export class $hyoo_lingua_app extends $.$hyoo_lingua_app {
+	export class $hd_linguist_app extends $.$hd_linguist_app {
 		
 		langs() {
-			return this.$.$hyoo_lingua_langs
+			return this.$.$hd_linguist_langs
 		}
 		
 		@ $mol_mem
@@ -29,7 +29,7 @@ namespace $.$$ {
 		
 		@ $mol_action
 		native_translate() {
-			const res = this.$.$hyoo_lingua_translate( this.foreign_lang(), this.native_text() )
+			const res = this.$.$hd_linguist_translate( this.foreign_lang(), this.native_text() )
 			this.foreign_text( res )
 			this.$.$mol_state_arg.commit()
 			this.Foreign_pane().dom_node().scrollIntoView({ behavior: 'smooth' })
@@ -37,7 +37,7 @@ namespace $.$$ {
 		
 		@ $mol_action
 		foreign_translate() {
-			const res = this.$.$hyoo_lingua_translate( this.native_lang(), this.foreign_text() )
+			const res = this.$.$hd_linguist_translate( this.native_lang(), this.foreign_text() )
 			this.native_text( res )
 			this.$.$mol_state_arg.commit()
 			this.Native_pane().dom_node().scrollIntoView({ behavior: 'smooth' })

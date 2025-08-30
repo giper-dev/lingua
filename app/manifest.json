@@ -1,9 +1,9 @@
 {
-	"short_name": "HD Translator",
-	"name": "Hyper Translator",
+	"short_name": "HD Linguist",
+	"name": "Hyper Linguist",
 	"icons": [
 		{
-			"src": "../../../hyoo/lingua/logo/logo.png",
+			"src": "../../../hd/linguist/logo/logo.png",
 			"type": "image/png",
 			"sizes": "320x320"
 		}

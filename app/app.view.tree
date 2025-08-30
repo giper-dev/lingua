@@ -1,10 +1,8 @@
-$hyoo_lingua_app $mol_page
-	title @ \Hyper Translator
+$hd_linguist_app $mol_page
+	title @ \Hyper Linguist
 	alt_services *string
 		Google \https://translate.google.com/?sl=auto&tl={lang}&text={text}
 		Yandex \https://translate.yandex.com/?target_lang={lang}&text={text}
-		- DeepL \https://deepl.com/en/translator//{text}/{lang} && fails on dots
-		- Bing \https://www.bing.com/translator?to={lang}&text={text} && bad translation
 	plugins /
 		<= Theme $mol_theme_auto
 	tools /
@@ -13,7 +11,7 @@ $hyoo_lingua_app $mol_page
 			click? <=> clear? null
 			sub /
 				<= Clear_icon $mol_icon_trash_can_outline
-		<= Source $mol_link_source uri \https://github.com/hyoo-ru/lingua.hyoo.ru
+		<= Source $mol_link_source uri \https://github.com/hd4ru/linguist
 		<= Lights $mol_lights_toggle
 	foot /
 		<= Native_bar $mol_view sub /

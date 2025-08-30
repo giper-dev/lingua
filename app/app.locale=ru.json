@@ -1,10 +1,10 @@
 {
-	"$hyoo_lingua_app_title": "Гипер Переводчик",
-	"$hyoo_lingua_app_Clear_hint": "Стереть тексты",
-	"$hyoo_lingua_app_Native_lang_hint": "Родной язык",
-	"$hyoo_lingua_app_Foreign_translate_hint": "Перевести на родной",
-	"$hyoo_lingua_app_Native_translate_hint": "Перевести на чужой",
-	"$hyoo_lingua_app_Foreign_lang_hint": "Чужой язык",
-	"$hyoo_lingua_app_Native_text_hint": "На родном языке",
-	"$hyoo_lingua_app_Foreign_text_hint": "На чужом языке"
+	"$hd_linguist_app_title": "Гипер Лингвист",
+	"$hd_linguist_app_Clear_hint": "Стереть тексты",
+	"$hd_linguist_app_Native_lang_hint": "Родной язык",
+	"$hd_linguist_app_Foreign_translate_hint": "Перевести на родной",
+	"$hd_linguist_app_Native_translate_hint": "Перевести на чужой",
+	"$hd_linguist_app_Foreign_lang_hint": "Чужой язык",
+	"$hd_linguist_app_Native_text_hint": "На родном языке",
+	"$hd_linguist_app_Foreign_text_hint": "На чужом языке"
 }

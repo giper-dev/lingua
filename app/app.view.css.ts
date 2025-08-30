@@ -1,13 +1,12 @@
 namespace $.$$ {
 	
-	const {rem} = $mol_style_unit
 	const {calc} = $mol_style_func
 	
-	$mol_style_define( $hyoo_lingua_app, {
+	$mol_style_define( $hd_linguist_app, {
 		
 		Native_translate: {
 			flex: {
-				basis: rem(2),
+				basis: '2rem',
 				grow: 1,
 			},
 			justifyContent: 'flex-end',
@@ -15,7 +14,7 @@ namespace $.$$ {
 		
 		Foreign_translate: {
 			flex: {
-				basis: rem(2),
+				basis: '2rem',
 				grow: 1,
 			},
 		},
@@ -23,7 +22,7 @@ namespace $.$$ {
 		Foreign_pane: {
 			padding: $mol_gap.block,
 			flex: {
-				basis: rem(21),
+				basis: '21rem',
 				grow: 1,
 			},
 			display: 'flex',
@@ -35,7 +34,7 @@ namespace $.$$ {
 		Native_pane: {
 			padding: $mol_gap.block,
 			flex: {
-				basis: rem(21),
+				basis: '21rem',
 				grow: 1,
 			},
 			display: 'flex',
