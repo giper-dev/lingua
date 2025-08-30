@@ -11,7 +11,12 @@ $hd_linguist_app $mol_page
 			click? <=> clear? null
 			sub /
 				<= Clear_icon $mol_icon_trash_can_outline
-		<= Source $mol_link_source uri \https://github.com/hd4ru/linguist
+		<= Source $mol_link_source
+			uri \https://github.com/hd4ru/linguist
+		<= Donate $mol_link_donate
+			uri \https://boosty.to/hyoo
+		<= Support $mol_link_support
+			uri \https://t.me/hd4ru/278
 		<= Lights $mol_lights_toggle
 	foot /
 		<= Native_bar $mol_view sub /
