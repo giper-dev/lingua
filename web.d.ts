@@ -1776,6 +1776,64 @@ declare namespace $ {
 
 //# sourceMappingURL=source.view.tree.d.ts.map
 declare namespace $ {
+
+	export class $mol_icon_gift extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=gift.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_gift_outline extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=outline.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_link_donate extends $mol_link {
+		Icon( ): $mol_icon_gift_outline
+		hint( ): string
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=donate.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_face extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=face.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_face_agent extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=agent.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_link_support extends $mol_link {
+		Icon( ): $mol_icon_face_agent
+		hint( ): string
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=support.view.tree.d.ts.map
+declare namespace $ {
 }
 
 declare namespace $ {
@@ -3841,197 +3899,207 @@ declare namespace $ {
 		,
 		ReturnType< $mol_link_source['uri'] >
 	>
-	type $mol_button_copy__text_hd_linguist_app_5 = $mol_type_enforce<
+	type $mol_link_donate__uri_hd_linguist_app_5 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link_donate['uri'] >
+	>
+	type $mol_link_support__uri_hd_linguist_app_6 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_link_support['uri'] >
+	>
+	type $mol_button_copy__text_hd_linguist_app_7 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_text'] >
 		,
 		ReturnType< $mol_button_copy['text'] >
 	>
-	type $mol_select__hint_hd_linguist_app_6 = $mol_type_enforce<
+	type $mol_select__hint_hd_linguist_app_8 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_select['hint'] >
 	>
-	type $mol_select__value_hd_linguist_app_7 = $mol_type_enforce<
+	type $mol_select__value_hd_linguist_app_9 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_lang'] >
 		,
 		ReturnType< $mol_select['value'] >
 	>
-	type $mol_select__dictionary_hd_linguist_app_8 = $mol_type_enforce<
+	type $mol_select__dictionary_hd_linguist_app_10 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['langs'] >
 		,
 		ReturnType< $mol_select['dictionary'] >
 	>
-	type __hd_linguist_app_9 = $mol_type_enforce<
+	type __hd_linguist_app_11 = $mol_type_enforce<
 		Parameters< $hd_linguist_app['foreign_translate_activate'] >[0]
 		,
 		Parameters< ReturnType< $hd_linguist_app['Foreign_translate'] >['event_activate'] >[0]
 	>
-	type $mol_button_major__hint_hd_linguist_app_10 = $mol_type_enforce<
+	type $mol_button_major__hint_hd_linguist_app_12 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_major['hint'] >
 	>
-	type $mol_button_major__click_hd_linguist_app_11 = $mol_type_enforce<
+	type $mol_button_major__click_hd_linguist_app_13 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_translate'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_button_major__sub_hd_linguist_app_12 = $mol_type_enforce<
+	type $mol_button_major__sub_hd_linguist_app_14 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_major['sub'] >
 	>
-	type $mol_view__sub_hd_linguist_app_13 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_15 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_link_iconed__title_hd_linguist_app_14 = $mol_type_enforce<
+	type $mol_link_iconed__title_hd_linguist_app_16 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_iconed['title'] >
 	>
-	type $mol_link_iconed__hint_hd_linguist_app_15 = $mol_type_enforce<
+	type $mol_link_iconed__hint_hd_linguist_app_17 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['alt_title'] >
 		,
 		ReturnType< $mol_link_iconed['hint'] >
 	>
-	type $mol_link_iconed__uri_hd_linguist_app_16 = $mol_type_enforce<
+	type $mol_link_iconed__uri_hd_linguist_app_18 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_alt_link'] >
 		,
 		ReturnType< $mol_link_iconed['uri'] >
 	>
-	type $mol_view__sub_hd_linguist_app_17 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_19 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_alt_list'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub_hd_linguist_app_18 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_20 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type __hd_linguist_app_19 = $mol_type_enforce<
+	type __hd_linguist_app_21 = $mol_type_enforce<
 		Parameters< $hd_linguist_app['native_translate_activate'] >[0]
 		,
 		Parameters< ReturnType< $hd_linguist_app['Native_translate'] >['event_activate'] >[0]
 	>
-	type $mol_button_major__hint_hd_linguist_app_20 = $mol_type_enforce<
+	type $mol_button_major__hint_hd_linguist_app_22 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_major['hint'] >
 	>
-	type $mol_button_major__click_hd_linguist_app_21 = $mol_type_enforce<
+	type $mol_button_major__click_hd_linguist_app_23 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_translate'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_button_major__sub_hd_linguist_app_22 = $mol_type_enforce<
+	type $mol_button_major__sub_hd_linguist_app_24 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_major['sub'] >
 	>
-	type $mol_select__hint_hd_linguist_app_23 = $mol_type_enforce<
+	type $mol_select__hint_hd_linguist_app_25 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_select['hint'] >
 	>
-	type $mol_select__value_hd_linguist_app_24 = $mol_type_enforce<
+	type $mol_select__value_hd_linguist_app_26 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_lang'] >
 		,
 		ReturnType< $mol_select['value'] >
 	>
-	type $mol_select__dictionary_hd_linguist_app_25 = $mol_type_enforce<
+	type $mol_select__dictionary_hd_linguist_app_27 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['langs'] >
 		,
 		ReturnType< $mol_select['dictionary'] >
 	>
-	type $mol_button_copy__text_hd_linguist_app_26 = $mol_type_enforce<
+	type $mol_button_copy__text_hd_linguist_app_28 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_text'] >
 		,
 		ReturnType< $mol_button_copy['text'] >
 	>
-	type $mol_view__sub_hd_linguist_app_27 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_29 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_link_iconed__title_hd_linguist_app_28 = $mol_type_enforce<
+	type $mol_link_iconed__title_hd_linguist_app_30 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_iconed['title'] >
 	>
-	type $mol_link_iconed__hint_hd_linguist_app_29 = $mol_type_enforce<
+	type $mol_link_iconed__hint_hd_linguist_app_31 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['alt_title'] >
 		,
 		ReturnType< $mol_link_iconed['hint'] >
 	>
-	type $mol_link_iconed__uri_hd_linguist_app_30 = $mol_type_enforce<
+	type $mol_link_iconed__uri_hd_linguist_app_32 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_alt_link'] >
 		,
 		ReturnType< $mol_link_iconed['uri'] >
 	>
-	type $mol_view__sub_hd_linguist_app_31 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_33 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_alt_list'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub_hd_linguist_app_32 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_34 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_textarea__hint_hd_linguist_app_33 = $mol_type_enforce<
+	type $mol_textarea__hint_hd_linguist_app_35 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_textarea['hint'] >
 	>
-	type $mol_textarea__value_hd_linguist_app_34 = $mol_type_enforce<
+	type $mol_textarea__value_hd_linguist_app_36 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_text'] >
 		,
 		ReturnType< $mol_textarea['value'] >
 	>
-	type $mol_textarea__submit_hd_linguist_app_35 = $mol_type_enforce<
+	type $mol_textarea__submit_hd_linguist_app_37 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_translate_activate'] >
 		,
 		ReturnType< $mol_textarea['submit'] >
 	>
-	type $mol_scroll__sub_hd_linguist_app_36 = $mol_type_enforce<
+	type $mol_scroll__sub_hd_linguist_app_38 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_scroll['sub'] >
 	>
-	type $mol_textarea__hint_hd_linguist_app_37 = $mol_type_enforce<
+	type $mol_textarea__hint_hd_linguist_app_39 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_textarea['hint'] >
 	>
-	type $mol_textarea__value_hd_linguist_app_38 = $mol_type_enforce<
+	type $mol_textarea__value_hd_linguist_app_40 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_text'] >
 		,
 		ReturnType< $mol_textarea['value'] >
 	>
-	type $mol_textarea__submit_hd_linguist_app_39 = $mol_type_enforce<
+	type $mol_textarea__submit_hd_linguist_app_41 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_translate_activate'] >
 		,
 		ReturnType< $mol_textarea['submit'] >
 	>
-	type $mol_scroll__sub_hd_linguist_app_40 = $mol_type_enforce<
+	type $mol_scroll__sub_hd_linguist_app_42 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_scroll['sub'] >
 	>
-	type $mol_book2__bring_hd_linguist_app_41 = $mol_type_enforce<
+	type $mol_book2__bring_hd_linguist_app_43 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['bring'] >
 		,
 		ReturnType< $mol_book2['bring'] >
 	>
-	type $mol_book2__Placeholder_hd_linguist_app_42 = $mol_type_enforce<
+	type $mol_book2__Placeholder_hd_linguist_app_44 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_book2['Placeholder'] >
 	>
-	type $mol_book2__pages_hd_linguist_app_43 = $mol_type_enforce<
+	type $mol_book2__pages_hd_linguist_app_45 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_book2['pages'] >
@@ -4042,6 +4110,8 @@ declare namespace $ {
 		Clear_icon( ): $mol_icon_trash_can_outline
 		Clear( ): $mol_button_minor
 		Source( ): $mol_link_source
+		Donate( ): $mol_link_donate
+		Support( ): $mol_link_support
 		Lights( ): $mol_lights_toggle
 		Native_copy( ): $mol_button_copy
 		native_lang( next?: string ): string
