@@ -1,0 +1,31 @@
+<!doctype html>
+<html mol_view_root>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link href="hd/linguist/logo/logo.svg" rel="icon" />
+		<title>Hyper Linguist</title>
+		<meta name="title" content="Hyper Translator" />
+		<meta name="description" content="User-friendly bi-panel lightweight ad-free online translation service"/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://linguist.hd4.ru/" />
+		<meta property="og:image" content="hd/linguist/logo/logo.png" />
+		<link rel="manifest" href="hd/linguist/app/manifest.json">
+	</head>
+	<body mol_view_root>
+		<div mol_view_root="$hd_linguist_app"></div>
+		<script src="web.js" charset="utf-8"></script>
+	
+				<script src="/mol/build/client/client.js" charset="utf-8"></script>
+				<script src="web.test.js" charset="utf-8"></script>
+				<script>
+					addEventListener( 'load', ()=> setTimeout( ()=> {
+						const audit =  document.createElement( 'script' )
+						audit.src = 'web.audit.js'
+						document.head.appendChild( audit )
+					}, 500 ) )
+				</script>
+				</body>
+</html>
