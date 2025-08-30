@@ -1,4 +1,4 @@
-name: $hd_linguist_app
+name: $hd_linguist
 
 on:
   workflow_dispatch:
