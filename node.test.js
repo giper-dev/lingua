@@ -10681,7 +10681,9 @@ var $;
             }
             clear() {
                 this.native_text('');
+                this.native_variants({});
                 this.foreign_text('');
+                this.foreign_variants({});
             }
         }
         __decorate([
