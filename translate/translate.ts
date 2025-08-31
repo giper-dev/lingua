@@ -1,12 +1,12 @@
 namespace $ {
 	
-	const github_llm_translator = $.$mol_github_model.make({
-		rules: ()=> `You are assistent-translator. User sends you language code and text in JSON format. You must reply with translation of his text to that language. Don't ask any questions or do something other than translation. Be sure translation have same meaning. Output translation as JSON string with correct escaping.`,
+	const translator = $.$mol_github_model.make({
+		rules: ()=> `You are assistent-translator. User sends you JSON with language code in "lang" field and text in "text" field. You must reply with translation of his text to that language. Don't ask any questions or do something other than translation. Don't use tools. Be sure translation have same meaning. Output translation as JSON in "text" field.`,
 		params: ()=> ({ temperature: 0 })
 	})
 	
 	const $hd_linguist_translate_api = [
-		( $:$, lang, text )=> github_llm_translator.shot({ lang, text }).text,
+		( $:$, lang, text )=> translator.shot({ lang, text }).text,
 	] as readonly( ( $: $, lang: string, text: string )=> string )[]
 	
 	export function $hd_linguist_translate( this: $, lang: string, text: string ) {

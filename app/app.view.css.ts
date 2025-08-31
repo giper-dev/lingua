@@ -43,6 +43,44 @@ namespace $.$$ {
 			},
 		},
 		
+		Native_variant: {
+			flex: {
+				wrap: 'wrap',
+			},
+		},
+		
+		Native_variant_title: {
+			flex: {
+				shrink: 1,
+			},
+		},
+		
+		Native_variant_descr: {
+			color: $mol_theme.text,
+			flex: {
+				shrink: 1,
+			},
+		},
+		
+		Foreign_variant: {
+			flex: {
+				wrap: 'wrap',
+			},
+		},
+		
+		Foreign_variant_title: {
+			flex: {
+				shrink: 1,
+			},
+		},
+		
+		Foreign_variant_descr: {
+			color: $mol_theme.text,
+			flex: {
+				shrink: 1,
+			},
+		},
+		
 		Foot: {
 			flex: {
 				wrap: 'wrap',

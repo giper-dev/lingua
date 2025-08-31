@@ -29,18 +29,58 @@ namespace $.$$ {
 		
 		@ $mol_action
 		native_translate() {
-			const res = this.$.$hd_linguist_translate( this.foreign_lang(), this.native_text() )
-			this.foreign_text( res )
+			const res = this.$.$hd_linguist_variants( this.$.$mol_locale.lang(), this.foreign_lang(), this.native_text() )
+			this.foreign_variants( res )
+			this.foreign_text( Object.keys( res )[0] )
 			this.$.$mol_state_arg.commit()
 			this.Foreign_pane().dom_node().scrollIntoView({ behavior: 'smooth' })
 		}
 		
 		@ $mol_action
 		foreign_translate() {
-			const res = this.$.$hd_linguist_translate( this.native_lang(), this.foreign_text() )
-			this.native_text( res )
+			const res = this.$.$hd_linguist_variants( this.$.$mol_locale.lang(), this.native_lang(), this.foreign_text() )
+			this.native_variants( res )
+			this.native_text( Object.keys( res )[0] )
 			this.$.$mol_state_arg.commit()
 			this.Native_pane().dom_node().scrollIntoView({ behavior: 'smooth' })
+		}
+		
+		@ $mol_mem
+		native_links() {
+			return Object.keys( this.native_variants() ).map( text => this.Native_variant( text ) )
+		}
+		
+		@ $mol_mem
+		foreign_links() {
+			return Object.keys( this.foreign_variants() ).map( text => this.Foreign_variant( text ) )
+		}
+		
+		native_variant_title( text: string ) {
+			return text
+		}
+		
+		foreign_variant_title( text: string ) {
+			return text
+		}
+		
+		native_variant_descr( text: string ) {
+			return this.native_variants()[ text ]
+		}
+		
+		foreign_variant_descr( text: string ) {
+			return this.foreign_variants()[ text ]
+		}
+		
+		native_variant_use( text: string, next?: Event ) {
+			this.native_text( text )
+			this.native_translate()
+			this.$.$mol_state_arg.commit()
+		}
+
+		foreign_variant_use( text: string, next?: Event ) {
+			this.foreign_text( text )
+			this.foreign_translate()
+			this.$.$mol_state_arg.commit()
 		}
 
 		@ $mol_mem
