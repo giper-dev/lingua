@@ -1911,78 +1911,6 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
-    type $mol_blob = Blob;
-    let $mol_blob: {
-        prototype: Blob;
-        new (blobParts?: readonly BlobPart[], options?: BlobPropertyBag): Blob;
-    };
-}
-
-declare namespace $ {
-
-	export class $mol_icon_clipboard extends $mol_icon {
-		path( ): string
-	}
-	
-}
-
-//# sourceMappingURL=clipboard.view.tree.d.ts.map
-declare namespace $ {
-
-	export class $mol_icon_clipboard_outline extends $mol_icon {
-		path( ): string
-	}
-	
-}
-
-//# sourceMappingURL=outline.view.tree.d.ts.map
-declare namespace $ {
-    function $mol_html_encode(text: string): string;
-}
-
-declare namespace $ {
-
-	type $mol_blob__mol_button_copy_1 = $mol_type_enforce<
-		[ readonly(BlobPart)[], ({ 
-			'type': string,
-		})  ]
-		,
-		ConstructorParameters< typeof $mol_blob >
-	>
-	type $mol_blob__mol_button_copy_2 = $mol_type_enforce<
-		[ readonly(BlobPart)[], ({ 
-			'type': string,
-		})  ]
-		,
-		ConstructorParameters< typeof $mol_blob >
-	>
-	export class $mol_button_copy extends $mol_button_minor {
-		text( ): ReturnType< $mol_button_copy['title'] >
-		text_blob( next?: $mol_blob ): $mol_blob
-		html( ): string
-		html_blob( next?: $mol_blob ): $mol_blob
-		Icon( ): $mol_icon_clipboard_outline
-		title( ): string
-		blobs( ): readonly($mol_blob)[]
-		data( ): Record<string, any>
-		sub( ): readonly(any)[]
-	}
-	
-}
-
-//# sourceMappingURL=copy.view.tree.d.ts.map
-declare namespace $.$$ {
-    class $mol_button_copy extends $.$mol_button_copy {
-        data(): {
-            [k: string]: Blob;
-        };
-        html(): string;
-        attachments(): ClipboardItem[];
-        click(event?: Event): void;
-    }
-}
-
-declare namespace $ {
 
 	type $mol_pop_bubble__align_mol_pop_1 = $mol_type_enforce<
 		ReturnType< $mol_pop['align'] >
@@ -2826,6 +2754,78 @@ declare namespace $ {
 
 //# sourceMappingURL=major.view.tree.d.ts.map
 declare namespace $ {
+    type $mol_blob = Blob;
+    let $mol_blob: {
+        prototype: Blob;
+        new (blobParts?: readonly BlobPart[], options?: BlobPropertyBag): Blob;
+    };
+}
+
+declare namespace $ {
+
+	export class $mol_icon_clipboard extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=clipboard.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_clipboard_outline extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=outline.view.tree.d.ts.map
+declare namespace $ {
+    function $mol_html_encode(text: string): string;
+}
+
+declare namespace $ {
+
+	type $mol_blob__mol_button_copy_1 = $mol_type_enforce<
+		[ readonly(BlobPart)[], ({ 
+			'type': string,
+		})  ]
+		,
+		ConstructorParameters< typeof $mol_blob >
+	>
+	type $mol_blob__mol_button_copy_2 = $mol_type_enforce<
+		[ readonly(BlobPart)[], ({ 
+			'type': string,
+		})  ]
+		,
+		ConstructorParameters< typeof $mol_blob >
+	>
+	export class $mol_button_copy extends $mol_button_minor {
+		text( ): ReturnType< $mol_button_copy['title'] >
+		text_blob( next?: $mol_blob ): $mol_blob
+		html( ): string
+		html_blob( next?: $mol_blob ): $mol_blob
+		Icon( ): $mol_icon_clipboard_outline
+		title( ): string
+		blobs( ): readonly($mol_blob)[]
+		data( ): Record<string, any>
+		sub( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=copy.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_button_copy extends $.$mol_button_copy {
+        data(): {
+            [k: string]: Blob;
+        };
+        html(): string;
+        attachments(): ClipboardItem[];
+        click(event?: Event): void;
+    }
+}
+
+declare namespace $ {
 
 	export class $mol_image extends $mol_view {
 		uri( ): string
@@ -3199,7 +3199,7 @@ declare namespace $.$$ {
         row_text(index: number): string;
         row_numb(index: number): number;
         find_pos(offset: number): any;
-        sub(): ($.$mol_button_copy | $.$mol_list)[];
+        sub(): ($.$mol_list | $.$mol_button_copy)[];
         syntax(): $mol_syntax2<{
             'code-indent': RegExp;
             'code-docs': RegExp;
@@ -3837,8 +3837,9 @@ declare namespace $ {
             tool_call_id: string;
         }>)[];
         fork(): $mol_github_model;
-        shot(prompt: any, params?: {}): any;
+        shot(prompt: any, context?: any, params?: {}): any;
         ask(text: any): this;
+        tell(text: any): this;
         answer(id: string, data: any): this;
         request_body(model: string): string;
         request(model: string, key: string): Readonly<{
@@ -3909,50 +3910,50 @@ declare namespace $ {
 		,
 		ReturnType< $mol_link_support['uri'] >
 	>
-	type $mol_button_copy__text_hd_linguist_app_7 = $mol_type_enforce<
-		ReturnType< $hd_linguist_app['native_text'] >
-		,
-		ReturnType< $mol_button_copy['text'] >
-	>
-	type $mol_select__hint_hd_linguist_app_8 = $mol_type_enforce<
+	type $mol_select__hint_hd_linguist_app_7 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_select['hint'] >
 	>
-	type $mol_select__value_hd_linguist_app_9 = $mol_type_enforce<
+	type $mol_select__value_hd_linguist_app_8 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['native_lang'] >
 		,
 		ReturnType< $mol_select['value'] >
 	>
-	type $mol_select__dictionary_hd_linguist_app_10 = $mol_type_enforce<
+	type $mol_select__dictionary_hd_linguist_app_9 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['langs'] >
 		,
 		ReturnType< $mol_select['dictionary'] >
 	>
-	type __hd_linguist_app_11 = $mol_type_enforce<
+	type __hd_linguist_app_10 = $mol_type_enforce<
 		Parameters< $hd_linguist_app['foreign_translate_activate'] >[0]
 		,
 		Parameters< ReturnType< $hd_linguist_app['Foreign_translate'] >['event_activate'] >[0]
 	>
-	type $mol_button_major__hint_hd_linguist_app_12 = $mol_type_enforce<
+	type $mol_button_major__hint_hd_linguist_app_11 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_major['hint'] >
 	>
-	type $mol_button_major__click_hd_linguist_app_13 = $mol_type_enforce<
+	type $mol_button_major__click_hd_linguist_app_12 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_translate'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_button_major__sub_hd_linguist_app_14 = $mol_type_enforce<
+	type $mol_button_major__sub_hd_linguist_app_13 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_major['sub'] >
 	>
-	type $mol_view__sub_hd_linguist_app_15 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_14 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_button_copy__text_hd_linguist_app_15 = $mol_type_enforce<
+		ReturnType< $hd_linguist_app['native_text'] >
+		,
+		ReturnType< $mol_button_copy['text'] >
 	>
 	type $mol_link_iconed__title_hd_linguist_app_16 = $mol_type_enforce<
 		string
@@ -4014,15 +4015,15 @@ declare namespace $ {
 		,
 		ReturnType< $mol_select['dictionary'] >
 	>
-	type $mol_button_copy__text_hd_linguist_app_28 = $mol_type_enforce<
-		ReturnType< $hd_linguist_app['foreign_text'] >
-		,
-		ReturnType< $mol_button_copy['text'] >
-	>
-	type $mol_view__sub_hd_linguist_app_29 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_28 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_button_copy__text_hd_linguist_app_29 = $mol_type_enforce<
+		ReturnType< $hd_linguist_app['foreign_text'] >
+		,
+		ReturnType< $mol_button_copy['text'] >
 	>
 	type $mol_link_iconed__title_hd_linguist_app_30 = $mol_type_enforce<
 		string
@@ -4113,7 +4114,6 @@ declare namespace $ {
 		Donate( ): $mol_link_donate
 		Support( ): $mol_link_support
 		Lights( ): $mol_lights_toggle
-		Native_copy( ): $mol_button_copy
 		native_lang( next?: string ): string
 		langs( ): Record<string, any>
 		Native_lang( ): $mol_select
@@ -4122,6 +4122,7 @@ declare namespace $ {
 		Foreign_translate_icon( ): $mol_icon_transfer_left
 		Foreign_translate( ): $mol_button_major
 		Native_tools( ): $mol_view
+		Native_copy( ): $mol_button_copy
 		alt_title( id: any): string
 		native_alt_link( id: any): string
 		Native_alt_link( id: any): $mol_link_iconed
@@ -4134,8 +4135,8 @@ declare namespace $ {
 		Native_translate( ): $mol_button_major
 		foreign_lang( next?: string ): string
 		Foreign_lang( ): $mol_select
-		Foreign_copy( ): $mol_button_copy
 		Foreign_tools( ): $mol_view
+		Foreign_copy( ): $mol_button_copy
 		foreign_alt_link( id: any): string
 		Foreign_alt_link( id: any): $mol_link_iconed
 		foreign_alt_list( ): readonly(any)[]
