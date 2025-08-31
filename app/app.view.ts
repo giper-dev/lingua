@@ -73,13 +73,11 @@ namespace $.$$ {
 		
 		native_variant_use( text: string, next?: Event ) {
 			this.native_text( text )
-			this.native_translate()
 			this.$.$mol_state_arg.commit()
 		}
 
 		foreign_variant_use( text: string, next?: Event ) {
 			this.foreign_text( text )
-			this.foreign_translate()
 			this.$.$mol_state_arg.commit()
 		}
 
