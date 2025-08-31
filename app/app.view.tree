@@ -21,8 +21,6 @@ $hd_linguist_app $mol_page
 	foot /
 		<= Native_bar $mol_view sub /
 			<= Native_tools $mol_view sub /
-				<= Native_copy $mol_button_copy
-					text <= native_text
 				<= Native_lang $mol_select
 					hint @ \Native Language
 					value? <=> native_lang? \ru
@@ -33,6 +31,8 @@ $hd_linguist_app $mol_page
 					event_activate? => foreign_translate_activate?
 					sub /
 						<= Foreign_translate_icon $mol_icon_transfer_left
+			<= Native_copy $mol_button_copy
+				text <= native_text
 			<= Native_alt_list $mol_view
 				sub <= native_alt_list /
 					<= Native_alt_link*0 $mol_link_iconed
@@ -51,8 +51,8 @@ $hd_linguist_app $mol_page
 					hint @ \Foreign Language
 					value? <=> foreign_lang? \en
 					dictionary <= langs *
-				<= Foreign_copy $mol_button_copy
-					text <= foreign_text
+			<= Foreign_copy $mol_button_copy
+				text <= foreign_text
 			<= Foreign_alt_list $mol_view
 				sub <= foreign_alt_list /
 					<= Foreign_alt_link*0 $mol_link_iconed
