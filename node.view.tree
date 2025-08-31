@@ -576,6 +576,30 @@ $mol_textarea_edit $mol_string
 		^
 		scrollTop 0
 
+$mol_icon_chevron $mol_icon path \M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z
+
+$mol_check_expand $mol_check
+	Icon $mol_icon_chevron
+	level 0
+	style *
+		^
+		paddingLeft <= level_style \0px
+	checked? <=> expanded? false
+	enabled <= expandable false
+
+$mol_expander $mol_list
+	rows /
+		<= Label $mol_view
+			sub /
+				<= Trigger $mol_check_expand
+					checked? <=> expanded? false
+					expandable <= expandable true
+					label <= label /
+						<= title
+				<= Tools null
+		<= Content $mol_list
+			rows <= content /
+
 $mol_book2 $mol_scroll
 	menu_title \
 	sub /$mol_view
@@ -655,9 +679,31 @@ $hd_linguist_app $mol_page
 					hint @ \native language 
 					value? <=> native_text? \
 					submit? <=> native_translate_activate?
+				<= Native_links $mol_expander
+					title @ \Variants
+					content <= native_links /
+						<= Native_variant*0 $mol_button_minor
+							click? <=> native_variant_use* null
+							sub /
+								<= Native_variant_title* $mol_view
+									sub / <= native_variant_title* \
+								<= Native_variant_descr* $mol_view
+									sub / <= native_variant_descr* \
 			<= Foreign_pane $mol_scroll sub /
 				<= Foreign_text $mol_textarea
 					hint @ \foreign language text
 					value? <=> foreign_text? \
 					bring => bring
 					submit? <=> foreign_translate_activate?
+				<= Foreign_links $mol_expander
+					title @ \Variants
+					content <= foreign_links /
+						<= Foreign_variant*0 $mol_button_minor
+							click? <=> foreign_variant_use* null
+							sub /
+								<= Foreign_variant_title* $mol_view
+									sub / <= foreign_variant_title* \
+								<= Foreign_variant_descr* $mol_view
+									sub / <= foreign_variant_descr* \
+	native_variants? *string
+	foreign_variants? *string

@@ -5619,7 +5619,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    $mol_style_attach("mol/button/typed/typed.view.css", "[mol_button_typed] {\n\talign-content: center;\n\talign-items: center;\n\tpadding: var(--mol_gap_text);\n\tborder-radius: var(--mol_gap_round);\n\tgap: var(--mol_gap_space);\n\tuser-select: none;\n\tcursor: pointer;\n}\n\n[mol_button_typed][disabled] {\n\tpointer-events: none;\n}\n\n[mol_button_typed]:hover ,\n[mol_button_typed]:focus-visible {\n\tbox-shadow: inset 0 0 0 10rem var(--mol_theme_hover);\n}\n\n[mol_button_typed]:active {\n\tcolor: var(--mol_theme_focus);\n}\n\n");
+    $mol_style_attach("mol/button/typed/typed.view.css", "[mol_button_typed] {\n\talign-content: center;\n\talign-items: center;\n\tpadding: var(--mol_gap_text);\n\tborder-radius: var(--mol_gap_round);\n\tgap: var(--mol_gap_space);\n\tuser-select: none;\n\tcursor: pointer;\n}\n\n[mol_button_typed][disabled] {\n\tpointer-events: none;\n}\n\n[mol_button_typed]:hover ,\n[mol_button_typed]:focus-visible {\n\tbox-shadow: inset 0 0 0 100vmax var(--mol_theme_hover);\n}\n\n[mol_button_typed]:active {\n\tcolor: var(--mol_theme_focus);\n}\n\n");
 })($ || ($ = {}));
 
 ;
@@ -9314,6 +9314,157 @@ var $;
 })($ || ($ = {}));
 
 ;
+	($.$mol_icon_chevron) = class $mol_icon_chevron extends ($.$mol_icon) {
+		path(){
+			return "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_check_expand) = class $mol_check_expand extends ($.$mol_check) {
+		level_style(){
+			return "0px";
+		}
+		expanded(next){
+			if(next !== undefined) return next;
+			return false;
+		}
+		expandable(){
+			return false;
+		}
+		Icon(){
+			const obj = new this.$.$mol_icon_chevron();
+			return obj;
+		}
+		level(){
+			return 0;
+		}
+		style(){
+			return {...(super.style()), "paddingLeft": (this.level_style())};
+		}
+		checked(next){
+			return (this.expanded(next));
+		}
+		enabled(){
+			return (this.expandable());
+		}
+	};
+	($mol_mem(($.$mol_check_expand.prototype), "expanded"));
+	($mol_mem(($.$mol_check_expand.prototype), "Icon"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_check_expand extends $.$mol_check_expand {
+            level_style() {
+                return `${this.level() * 1 - 1}rem`;
+            }
+            expandable() {
+                return this.expanded() !== null;
+            }
+        }
+        $$.$mol_check_expand = $mol_check_expand;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/check/expand/expand.view.css", "[mol_check_expand] {\n\tmin-width: 20px;\n}\n\n:where([mol_check_expand][disabled]) [mol_check_expand_icon] {\n\tvisibility: hidden;\n}\n\n[mol_check_expand_icon] {\n\tbox-shadow: none;\n\tmargin-left: -0.375rem;\n}\n[mol_check_expand_icon] {\n\ttransform: rotateZ(0deg);\n}\n\n:where([mol_check_checked]) [mol_check_expand_icon] {\n\ttransform: rotateZ(90deg);\n}\n\n[mol_check_expand_icon] {\n\tvertical-align: text-top;\n}\n\n[mol_check_expand_label] {\n\tmargin-left: 0;\n}\n");
+})($ || ($ = {}));
+
+;
+	($.$mol_expander) = class $mol_expander extends ($.$mol_list) {
+		expanded(next){
+			if(next !== undefined) return next;
+			return false;
+		}
+		expandable(){
+			return true;
+		}
+		label(){
+			return [(this.title())];
+		}
+		Trigger(){
+			const obj = new this.$.$mol_check_expand();
+			(obj.checked) = (next) => ((this.expanded(next)));
+			(obj.expandable) = () => ((this.expandable()));
+			(obj.label) = () => ((this.label()));
+			return obj;
+		}
+		Tools(){
+			return null;
+		}
+		Label(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.Trigger()), (this.Tools())]);
+			return obj;
+		}
+		content(){
+			return [];
+		}
+		Content(){
+			const obj = new this.$.$mol_list();
+			(obj.rows) = () => ((this.content()));
+			return obj;
+		}
+		rows(){
+			return [(this.Label()), (this.Content())];
+		}
+	};
+	($mol_mem(($.$mol_expander.prototype), "expanded"));
+	($mol_mem(($.$mol_expander.prototype), "Trigger"));
+	($mol_mem(($.$mol_expander.prototype), "Label"));
+	($mol_mem(($.$mol_expander.prototype), "Content"));
+
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_expander extends $.$mol_expander {
+            rows() {
+                return [
+                    this.Label(),
+                    ...this.expanded() ? [this.Content()] : []
+                ];
+            }
+            expandable() {
+                return this.content().length > 0;
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_expander.prototype, "rows", null);
+        $$.$mol_expander = $mol_expander;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/expander/expander.view.css", "[mol_expander] {\n\tflex-direction: column;\n}\n\n[mol_expander_label] {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tborder-radius: var(--mol_gap_round);\n}\n\n[mol_expander_trigger] {\n\tflex: auto;\n\tposition: relative;\n}\n");
+})($ || ($ = {}));
+
+;
 	($.$mol_book2) = class $mol_book2 extends ($.$mol_scroll) {
 		pages_deep(){
 			return [];
@@ -9617,9 +9768,43 @@ var $;
 			(obj.submit) = (next) => ((this.native_translate_activate(next)));
 			return obj;
 		}
+		native_variant_use(id){
+			return null;
+		}
+		native_variant_title(id){
+			return "";
+		}
+		Native_variant_title(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.native_variant_title(id))]);
+			return obj;
+		}
+		native_variant_descr(id){
+			return "";
+		}
+		Native_variant_descr(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.native_variant_descr(id))]);
+			return obj;
+		}
+		Native_variant(id){
+			const obj = new this.$.$mol_button_minor();
+			(obj.click) = (next) => ((this.native_variant_use(id)));
+			(obj.sub) = () => ([(this.Native_variant_title(id)), (this.Native_variant_descr(id))]);
+			return obj;
+		}
+		native_links(){
+			return [(this.Native_variant("0"))];
+		}
+		Native_links(){
+			const obj = new this.$.$mol_expander();
+			(obj.title) = () => ((this.$.$mol_locale.text("$hd_linguist_app_Native_links_title")));
+			(obj.content) = () => ((this.native_links()));
+			return obj;
+		}
 		Native_pane(){
 			const obj = new this.$.$mol_scroll();
-			(obj.sub) = () => ([(this.Native_text())]);
+			(obj.sub) = () => ([(this.Native_text()), (this.Native_links())]);
 			return obj;
 		}
 		foreign_text(next){
@@ -9636,9 +9821,43 @@ var $;
 			(obj.submit) = (next) => ((this.foreign_translate_activate(next)));
 			return obj;
 		}
+		foreign_variant_use(id){
+			return null;
+		}
+		foreign_variant_title(id){
+			return "";
+		}
+		Foreign_variant_title(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.foreign_variant_title(id))]);
+			return obj;
+		}
+		foreign_variant_descr(id){
+			return "";
+		}
+		Foreign_variant_descr(id){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ([(this.foreign_variant_descr(id))]);
+			return obj;
+		}
+		Foreign_variant(id){
+			const obj = new this.$.$mol_button_minor();
+			(obj.click) = (next) => ((this.foreign_variant_use(id)));
+			(obj.sub) = () => ([(this.Foreign_variant_title(id)), (this.Foreign_variant_descr(id))]);
+			return obj;
+		}
+		foreign_links(){
+			return [(this.Foreign_variant("0"))];
+		}
+		Foreign_links(){
+			const obj = new this.$.$mol_expander();
+			(obj.title) = () => ((this.$.$mol_locale.text("$hd_linguist_app_Foreign_links_title")));
+			(obj.content) = () => ((this.foreign_links()));
+			return obj;
+		}
 		Foreign_pane(){
 			const obj = new this.$.$mol_scroll();
-			(obj.sub) = () => ([(this.Foreign_text())]);
+			(obj.sub) = () => ([(this.Foreign_text()), (this.Foreign_links())]);
 			return obj;
 		}
 		title(){
@@ -9668,6 +9887,14 @@ var $;
 			(obj.Placeholder) = () => (null);
 			(obj.pages) = () => ([(this.Native_pane()), (this.Foreign_pane())]);
 			return obj;
+		}
+		native_variants(next){
+			if(next !== undefined) return next;
+			return {};
+		}
+		foreign_variants(next){
+			if(next !== undefined) return next;
+			return {};
 		}
 	};
 	($mol_mem(($.$hd_linguist_app.prototype), "Theme"));
@@ -9700,11 +9927,21 @@ var $;
 	($mol_mem(($.$hd_linguist_app.prototype), "Foreign_bar"));
 	($mol_mem(($.$hd_linguist_app.prototype), "native_text"));
 	($mol_mem(($.$hd_linguist_app.prototype), "Native_text"));
+	($mol_mem_key(($.$hd_linguist_app.prototype), "Native_variant_title"));
+	($mol_mem_key(($.$hd_linguist_app.prototype), "Native_variant_descr"));
+	($mol_mem_key(($.$hd_linguist_app.prototype), "Native_variant"));
+	($mol_mem(($.$hd_linguist_app.prototype), "Native_links"));
 	($mol_mem(($.$hd_linguist_app.prototype), "Native_pane"));
 	($mol_mem(($.$hd_linguist_app.prototype), "foreign_text"));
 	($mol_mem(($.$hd_linguist_app.prototype), "Foreign_text"));
+	($mol_mem_key(($.$hd_linguist_app.prototype), "Foreign_variant_title"));
+	($mol_mem_key(($.$hd_linguist_app.prototype), "Foreign_variant_descr"));
+	($mol_mem_key(($.$hd_linguist_app.prototype), "Foreign_variant"));
+	($mol_mem(($.$hd_linguist_app.prototype), "Foreign_links"));
 	($mol_mem(($.$hd_linguist_app.prototype), "Foreign_pane"));
 	($mol_mem(($.$hd_linguist_app.prototype), "Body"));
+	($mol_mem(($.$hd_linguist_app.prototype), "native_variants"));
+	($mol_mem(($.$hd_linguist_app.prototype), "foreign_variants"));
 
 
 ;
@@ -10319,23 +10556,20 @@ var $;
 "use strict";
 var $;
 (function ($_1) {
-    const github_llm_translator = $.$mol_github_model.make({
-        rules: () => `You are assistent-translator. User sends you language code and text in JSON format. You must reply with translation of his text to that language. Don't ask any questions or do something other than translation. Be sure translation have same meaning. Output translation as JSON string with correct escaping.`,
+    const variator = $.$mol_github_model.make({
+        rules: () => `You are assistent-translator. User sends you JSON with target language code in "lang" field, native language con in "native" field and text in "text" field. You must reply with JSON where all unique variants of translation of whole user text to target language are represented as keys, and explanation in native language of diffrence of variant meaning with other is represented as value. Don't ask any questions or do something other than translation. Don't use tools. Be sure translation have same meaning.`,
         params: () => ({ temperature: 0 })
     });
-    const $hd_linguist_translate_api = [
-        ($, lang, text) => github_llm_translator.shot({ lang, text }).text,
+    const $hd_linguist_variants_api = [
+        ($, native, lang, text) => variator.shot({ native, lang, text }),
     ];
-    function $hd_linguist_translate(lang, text) {
+    function $hd_linguist_variants(native, lang, text) {
         if (!text.trim())
-            return '';
-        const apis = $mol_array_shuffle_sync($hd_linguist_translate_api);
+            return {};
+        const apis = $mol_array_shuffle_sync($hd_linguist_variants_api);
         for (const fetch of apis) {
             try {
-                const res = fetch(this, lang, text);
-                if (res === undefined)
-                    $mol_fail(new Error('Broken API'));
-                return res;
+                return fetch(this, native, lang, text);
             }
             catch (error) {
                 if ($mol_promise_like(error))
@@ -10345,7 +10579,7 @@ var $;
         }
         throw new Error('No alive API');
     }
-    $_1.$hd_linguist_translate = $hd_linguist_translate;
+    $_1.$hd_linguist_variants = $hd_linguist_variants;
 })($ || ($ = {}));
 
 ;
@@ -10396,16 +10630,46 @@ var $;
                 return this.$.$mol_state_arg.value('foreign_text', next) ?? '';
             }
             native_translate() {
-                const res = this.$.$hd_linguist_translate(this.foreign_lang(), this.native_text());
-                this.foreign_text(res);
+                const res = this.$.$hd_linguist_variants(this.$.$mol_locale.lang(), this.foreign_lang(), this.native_text());
+                this.foreign_variants(res);
+                this.foreign_text(Object.keys(res)[0]);
                 this.$.$mol_state_arg.commit();
                 this.Foreign_pane().dom_node().scrollIntoView({ behavior: 'smooth' });
             }
             foreign_translate() {
-                const res = this.$.$hd_linguist_translate(this.native_lang(), this.foreign_text());
-                this.native_text(res);
+                const res = this.$.$hd_linguist_variants(this.$.$mol_locale.lang(), this.native_lang(), this.foreign_text());
+                this.native_variants(res);
+                this.native_text(Object.keys(res)[0]);
                 this.$.$mol_state_arg.commit();
                 this.Native_pane().dom_node().scrollIntoView({ behavior: 'smooth' });
+            }
+            native_links() {
+                return Object.keys(this.native_variants()).map(text => this.Native_variant(text));
+            }
+            foreign_links() {
+                return Object.keys(this.foreign_variants()).map(text => this.Foreign_variant(text));
+            }
+            native_variant_title(text) {
+                return text;
+            }
+            foreign_variant_title(text) {
+                return text;
+            }
+            native_variant_descr(text) {
+                return this.native_variants()[text];
+            }
+            foreign_variant_descr(text) {
+                return this.foreign_variants()[text];
+            }
+            native_variant_use(text, next) {
+                this.native_text(text);
+                this.native_translate();
+                this.$.$mol_state_arg.commit();
+            }
+            foreign_variant_use(text, next) {
+                this.foreign_text(text);
+                this.foreign_translate();
+                this.$.$mol_state_arg.commit();
             }
             native_alt_list() {
                 return Object.keys(this.alt_services()).map(service => this.Native_alt_link(service));
@@ -10449,6 +10713,12 @@ var $;
         __decorate([
             $mol_action
         ], $hd_linguist_app.prototype, "foreign_translate", null);
+        __decorate([
+            $mol_mem
+        ], $hd_linguist_app.prototype, "native_links", null);
+        __decorate([
+            $mol_mem
+        ], $hd_linguist_app.prototype, "foreign_links", null);
         __decorate([
             $mol_mem
         ], $hd_linguist_app.prototype, "native_alt_list", null);
@@ -10506,6 +10776,38 @@ var $;
                 display: 'flex',
                 align: {
                     items: 'stretch',
+                },
+            },
+            Native_variant: {
+                flex: {
+                    wrap: 'wrap',
+                },
+            },
+            Native_variant_title: {
+                flex: {
+                    shrink: 1,
+                },
+            },
+            Native_variant_descr: {
+                color: $mol_theme.text,
+                flex: {
+                    shrink: 1,
+                },
+            },
+            Foreign_variant: {
+                flex: {
+                    wrap: 'wrap',
+                },
+            },
+            Foreign_variant_title: {
+                flex: {
+                    shrink: 1,
+                },
+            },
+            Foreign_variant_descr: {
+                color: $mol_theme.text,
+                flex: {
+                    shrink: 1,
                 },
             },
             Foot: {

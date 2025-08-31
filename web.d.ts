@@ -3379,6 +3379,95 @@ declare namespace $ {
 
 declare namespace $ {
 
+	export class $mol_icon_chevron extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=chevron.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_check_expand extends $mol_check {
+		level_style( ): string
+		expanded( next?: boolean ): boolean
+		expandable( ): boolean
+		Icon( ): $mol_icon_chevron
+		level( ): number
+		style( ): ({ 
+			'paddingLeft': ReturnType< $mol_check_expand['level_style'] >,
+		})  & ReturnType< $mol_check['style'] >
+		checked( next?: ReturnType< $mol_check_expand['expanded'] > ): ReturnType< $mol_check_expand['expanded'] >
+		enabled( ): ReturnType< $mol_check_expand['expandable'] >
+	}
+	
+}
+
+//# sourceMappingURL=expand.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_check_expand extends $.$mol_check_expand {
+        level_style(): string;
+        expandable(): boolean;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
+	type $mol_check_expand__checked_mol_expander_1 = $mol_type_enforce<
+		ReturnType< $mol_expander['expanded'] >
+		,
+		ReturnType< $mol_check_expand['checked'] >
+	>
+	type $mol_check_expand__expandable_mol_expander_2 = $mol_type_enforce<
+		ReturnType< $mol_expander['expandable'] >
+		,
+		ReturnType< $mol_check_expand['expandable'] >
+	>
+	type $mol_check_expand__label_mol_expander_3 = $mol_type_enforce<
+		ReturnType< $mol_expander['label'] >
+		,
+		ReturnType< $mol_check_expand['label'] >
+	>
+	type $mol_view__sub_mol_expander_4 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_list__rows_mol_expander_5 = $mol_type_enforce<
+		ReturnType< $mol_expander['content'] >
+		,
+		ReturnType< $mol_list['rows'] >
+	>
+	export class $mol_expander extends $mol_list {
+		expanded( next?: boolean ): boolean
+		expandable( ): boolean
+		label( ): readonly(any)[]
+		Trigger( ): $mol_check_expand
+		Tools( ): any
+		Label( ): $mol_view
+		content( ): readonly(any)[]
+		Content( ): $mol_list
+		rows( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=expander.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_expander extends $.$mol_expander {
+        rows(): $mol_view[];
+        expandable(): boolean;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
+
 	type $mol_book2_sub__1 = $mol_type_enforce<
 		ReturnType< $mol_book2['pages'] >[number]
 		,
@@ -3864,7 +3953,7 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    function $hd_linguist_translate(this: $, lang: string, text: string): string;
+    function $hd_linguist_variants(this: $, native: string, lang: string, text: string): Record<string, string>;
 }
 
 declare namespace $ {
@@ -4065,42 +4154,102 @@ declare namespace $ {
 		,
 		ReturnType< $mol_textarea['submit'] >
 	>
-	type $mol_scroll__sub_hd_linguist_app_38 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_38 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_view__sub_hd_linguist_app_39 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_button_minor__click_hd_linguist_app_40 = $mol_type_enforce<
+		ReturnType< $hd_linguist_app['native_variant_use'] >
+		,
+		ReturnType< $mol_button_minor['click'] >
+	>
+	type $mol_button_minor__sub_hd_linguist_app_41 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_button_minor['sub'] >
+	>
+	type $mol_expander__title_hd_linguist_app_42 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_expander['title'] >
+	>
+	type $mol_expander__content_hd_linguist_app_43 = $mol_type_enforce<
+		ReturnType< $hd_linguist_app['native_links'] >
+		,
+		ReturnType< $mol_expander['content'] >
+	>
+	type $mol_scroll__sub_hd_linguist_app_44 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_scroll['sub'] >
 	>
-	type $mol_textarea__hint_hd_linguist_app_39 = $mol_type_enforce<
+	type $mol_textarea__hint_hd_linguist_app_45 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_textarea['hint'] >
 	>
-	type $mol_textarea__value_hd_linguist_app_40 = $mol_type_enforce<
+	type $mol_textarea__value_hd_linguist_app_46 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_text'] >
 		,
 		ReturnType< $mol_textarea['value'] >
 	>
-	type $mol_textarea__submit_hd_linguist_app_41 = $mol_type_enforce<
+	type $mol_textarea__submit_hd_linguist_app_47 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['foreign_translate_activate'] >
 		,
 		ReturnType< $mol_textarea['submit'] >
 	>
-	type $mol_scroll__sub_hd_linguist_app_42 = $mol_type_enforce<
+	type $mol_view__sub_hd_linguist_app_48 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_view__sub_hd_linguist_app_49 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_button_minor__click_hd_linguist_app_50 = $mol_type_enforce<
+		ReturnType< $hd_linguist_app['foreign_variant_use'] >
+		,
+		ReturnType< $mol_button_minor['click'] >
+	>
+	type $mol_button_minor__sub_hd_linguist_app_51 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_button_minor['sub'] >
+	>
+	type $mol_expander__title_hd_linguist_app_52 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_expander['title'] >
+	>
+	type $mol_expander__content_hd_linguist_app_53 = $mol_type_enforce<
+		ReturnType< $hd_linguist_app['foreign_links'] >
+		,
+		ReturnType< $mol_expander['content'] >
+	>
+	type $mol_scroll__sub_hd_linguist_app_54 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_scroll['sub'] >
 	>
-	type $mol_book2__bring_hd_linguist_app_43 = $mol_type_enforce<
+	type $mol_book2__bring_hd_linguist_app_55 = $mol_type_enforce<
 		ReturnType< $hd_linguist_app['bring'] >
 		,
 		ReturnType< $mol_book2['bring'] >
 	>
-	type $mol_book2__Placeholder_hd_linguist_app_44 = $mol_type_enforce<
+	type $mol_book2__Placeholder_hd_linguist_app_56 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_book2['Placeholder'] >
 	>
-	type $mol_book2__pages_hd_linguist_app_45 = $mol_type_enforce<
+	type $mol_book2__pages_hd_linguist_app_57 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_book2['pages'] >
@@ -4144,10 +4293,26 @@ declare namespace $ {
 		Foreign_bar( ): $mol_view
 		native_text( next?: string ): string
 		Native_text( ): $mol_textarea
+		native_variant_use( id: any): any
+		native_variant_title( id: any): string
+		Native_variant_title( id: any): $mol_view
+		native_variant_descr( id: any): string
+		Native_variant_descr( id: any): $mol_view
+		Native_variant( id: any): $mol_button_minor
+		native_links( ): readonly(any)[]
+		Native_links( ): $mol_expander
 		Native_pane( ): $mol_scroll
 		foreign_text( next?: string ): string
 		bring( ): ReturnType< ReturnType< $hd_linguist_app['Foreign_text'] >['bring'] >
 		Foreign_text( ): $mol_textarea
+		foreign_variant_use( id: any): any
+		foreign_variant_title( id: any): string
+		Foreign_variant_title( id: any): $mol_view
+		foreign_variant_descr( id: any): string
+		Foreign_variant_descr( id: any): $mol_view
+		Foreign_variant( id: any): $mol_button_minor
+		foreign_links( ): readonly(any)[]
+		Foreign_links( ): $mol_expander
 		Foreign_pane( ): $mol_scroll
 		title( ): string
 		alt_services( ): Record<string, string>
@@ -4155,6 +4320,8 @@ declare namespace $ {
 		tools( ): readonly(any)[]
 		foot( ): readonly(any)[]
 		Body( ): $mol_book2
+		native_variants( next?: Record<string, string> ): Record<string, string>
+		foreign_variants( next?: Record<string, string> ): Record<string, string>
 	}
 	
 }
@@ -4197,6 +4364,14 @@ declare namespace $.$$ {
         foreign_text(next?: string): string;
         native_translate(): void;
         foreign_translate(): void;
+        native_links(): $mol_button_minor[];
+        foreign_links(): $mol_button_minor[];
+        native_variant_title(text: string): string;
+        foreign_variant_title(text: string): string;
+        native_variant_descr(text: string): string;
+        foreign_variant_descr(text: string): string;
+        native_variant_use(text: string, next?: Event): void;
+        foreign_variant_use(text: string, next?: Event): void;
         native_alt_list(): $.$mol_link_iconed[];
         foreign_alt_list(): $.$mol_link_iconed[];
         alt_title(service: string): string;
