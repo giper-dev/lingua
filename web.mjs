@@ -10165,14 +10165,14 @@ var $;
                 return this.$.$mol_state_arg.value('foreign_text', next) ?? '';
             }
             native_translate() {
-                const res = this.$.$hd_linguist_variants(this.$.$mol_locale.lang(), this.foreign_lang(), this.native_text());
+                const res = this.$.$hd_linguist_variants(this.native_lang(), this.foreign_lang(), this.native_text());
                 this.foreign_variants(res);
                 this.foreign_text(Object.keys(res)[0]);
                 this.$.$mol_state_arg.commit();
                 this.Foreign_pane().dom_node().scrollIntoView({ behavior: 'smooth' });
             }
             foreign_translate() {
-                const res = this.$.$hd_linguist_variants(this.$.$mol_locale.lang(), this.native_lang(), this.foreign_text());
+                const res = this.$.$hd_linguist_variants(this.native_lang(), this.native_lang(), this.foreign_text());
                 this.native_variants(res);
                 this.native_text(Object.keys(res)[0]);
                 this.$.$mol_state_arg.commit();
