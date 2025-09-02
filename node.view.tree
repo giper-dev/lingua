@@ -8,35 +8,71 @@ $mol_scroll $mol_view
 		^
 		scroll?event <=> event_scroll?event null
 
-$mol_page $mol_view
-	dom_name \article
-	attr *
-		^
-		tabIndex <= tabindex -1
-	sub /
-		<= Head $mol_view
-			minimal_height 64
-			dom_name \header
-			sub <= head /
-				<= Title $mol_view
-					dom_name \h1
-					sub <= title_content /
-						<= Logo null
-						<= title
-				<= Tools $mol_view
-					sub <= tools /$mol_view_content
-		<= Body $mol_scroll
-			scroll_top? => body_scroll_top?
-			sub <= body_content /
-				<= Body_content $mol_view
-					sub <= body /$mol_view
-		<= Foot $mol_view
-			dom_name \footer
-			sub <= foot /$mol_view
+$mol_book2 $mol_scroll
+	menu_title \
+	sub /$mol_view
+		^ pages <= pages_deep /$mol_view
+		^ placeholders /$mol_view
+			<= Placeholder $mol_view
+	minimal_width 0
+	Gap* $mol_view title \
 
 $mol_theme_auto $mol_plugin
 	light \$mol_theme_light
 	attr * mol_theme <= theme <= dark \$mol_theme_dark
+
+$mol_link $mol_view
+	uri \
+	dom_name \a
+	uri_off \
+	uri_native null
+	external false
+	attr *
+		^
+		href <= uri_toggle \
+		title <= hint_safe <= hint \
+		target <= target \_self
+		download <= file_name \
+		mol_link_current <= current false
+		rel <= relation \
+	sub /$mol_view_content
+		<= title
+	arg *
+	event *
+		^
+		click?event <=> click?event <=> event_click?event null
+
+$mol_embed_native $mol_scroll
+	dom_name \iframe
+	window null
+	attr *
+		^
+		src <= uri? \about:config
+	sub /
+		<= Fallback $mol_link
+			uri <= uri
+			sub /
+				<= title \
+	message *
+		hashchange? <=> uri_change? null
+
+$mol_frame $mol_embed_native
+	attr *
+		tabindex <= tabindex
+		allow <= allow \
+		src <= uri
+		srcdoc <= html null
+	fullscreen true
+	accelerometer true
+	autoplay true
+	encription true
+	gyroscope true
+	pip true
+	clipboard_read true
+	clipboard_write true
+
+$hd_space_frame $mol_frame
+	uri \http://localhost:9080/hd/space/bar/-/test.html#mol_lights={lights}/current={current}
 
 $mol_svg $mol_view
 	dom_name \svg
@@ -107,27 +143,6 @@ $mol_button_typed $mol_button
 	minimal_width 40
 
 $mol_button_minor $mol_button_typed
-
-$mol_link $mol_view
-	uri \
-	dom_name \a
-	uri_off \
-	uri_native null
-	external false
-	attr *
-		^
-		href <= uri_toggle \
-		title <= hint_safe <= hint \
-		target <= target \_self
-		download <= file_name \
-		mol_link_current <= current false
-		rel <= relation \
-	sub /$mol_view_content
-		<= title
-	arg *
-	event *
-		^
-		click?event <=> click?event <=> event_click?event null
 
 $mol_icon_script $mol_icon path \M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2H8C6.3,2 5,3.3 5,5V16H16V17C16,17.6 16.4,18 17,18H18V5C18,4.4 18.4,4 19,4C19.6,4 20,4.4 20,5V6H22V5C22,3.3 20.7,2 19,2Z
 
@@ -600,110 +615,131 @@ $mol_expander $mol_list
 		<= Content $mol_list
 			rows <= content /
 
-$mol_book2 $mol_scroll
-	menu_title \
-	sub /$mol_view
-		^ pages <= pages_deep /$mol_view
-		^ placeholders /$mol_view
-			<= Placeholder $mol_view
-	minimal_width 0
-	Gap* $mol_view title \
+$mol_page $mol_view
+	dom_name \article
+	attr *
+		^
+		tabIndex <= tabindex -1
+	sub /
+		<= Head $mol_view
+			minimal_height 64
+			dom_name \header
+			sub <= head /
+				<= Title $mol_view
+					dom_name \h1
+					sub <= title_content /
+						<= Logo null
+						<= title
+				<= Tools $mol_view
+					sub <= tools /$mol_view_content
+		<= Body $mol_scroll
+			scroll_top? => body_scroll_top?
+			sub <= body_content /
+				<= Body_content $mol_view
+					sub <= body /$mol_view
+		<= Foot $mol_view
+			dom_name \footer
+			sub <= foot /$mol_view
 
-$hd_linguist_app $mol_page
-	title @ \Hyper Linguist
+$hd_linguist_app $mol_book2
 	alt_services *string
 		Google \https://translate.google.com/?sl=auto&tl={lang}&text={text}
 		Yandex \https://translate.yandex.com/?target_lang={lang}&text={text}
 	plugins /
 		<= Theme $mol_theme_auto
-	tools /
-		<= Clear $mol_button_minor
-			hint @ \Clear texts
-			click? <=> clear? null
-			sub /
-				<= Clear_icon $mol_icon_trash_can_outline
-		<= Source $mol_link_source
-			uri \https://github.com/hd4ru/linguist
-		<= Donate $mol_link_donate
-			uri \https://boosty.to/hyoo
-		<= Support $mol_link_support
-			uri \https://t.me/hd4ru/278
-		<= Lights $mol_lights_toggle
-	foot /
-		<= Native_bar $mol_view sub /
-			<= Native_tools $mol_view sub /
-				<= Native_lang $mol_select
-					hint @ \Native Language
-					value? <=> native_lang? \ru
-					dictionary <= langs *
-				<= Foreign_translate $mol_button_major
-					hint @ \Translate to Native
-					click? <=> foreign_translate? null
-					event_activate? => foreign_translate_activate?
+	placeholders /
+	pages /
+		<= Space $hd_space_frame
+		<= Main $mol_page
+			title <= title @ \Hyper Linguist
+			tools /
+				<= Clear $mol_button_minor
+					hint @ \Clear texts
+					click? <=> clear? null
 					sub /
-						<= Foreign_translate_icon $mol_icon_transfer_left
-			<= Native_copy $mol_button_copy
-				text <= native_text
-			<= Native_alt_list $mol_view
-				sub <= native_alt_list /
-					<= Native_alt_link*0 $mol_link_iconed
-						title \
-						hint <= alt_title* \
-						uri <= native_alt_link* \
-		<= Foreign_bar $mol_view sub /
-			<= Foreign_tools $mol_view sub /
-				<= Native_translate $mol_button_major
-					hint @ \Translate to Foreign
-					click? <=> native_translate? null
-					event_activate? => native_translate_activate?
-					sub /
-						<= Native_translate_icon $mol_icon_transfer_right
-				<= Foreign_lang $mol_select
-					hint @ \Foreign Language
-					value? <=> foreign_lang? \en
-					dictionary <= langs *
-			<= Foreign_copy $mol_button_copy
-				text <= foreign_text
-			<= Foreign_alt_list $mol_view
-				sub <= foreign_alt_list /
-					<= Foreign_alt_link*0 $mol_link_iconed
-						title \
-						hint <= alt_title* \
-						uri <= foreign_alt_link* \
-	Body $mol_book2
-		bring <= bring
-		Placeholder null
-		pages /
-			<= Native_pane $mol_scroll sub /
-				<= Native_text $mol_textarea
-					hint @ \native language 
-					value? <=> native_text? \
-					submit? <=> native_translate_activate?
-				<= Native_links $mol_expander
-					title @ \Variants
-					content <= native_links /
-						<= Native_variant*0 $mol_button_minor
-							click? <=> native_variant_use* null
+						<= Clear_icon $mol_icon_trash_can_outline
+				<= Source $mol_link_source
+					uri \https://github.com/hd4ru/linguist
+				<= Donate $mol_link_donate
+					uri \https://boosty.to/hyoo
+				<= Support $mol_link_support
+					uri \https://t.me/hd4ru/278
+				<= Lights $mol_lights_toggle
+			foot /
+				<= Native_bar $mol_view sub /
+					<= Native_tools $mol_view sub /
+						<= Native_lang $mol_select
+							hint @ \Native Language
+							value? <=> native_lang? \ru
+							dictionary <= langs *
+						<= Foreign_translate $mol_button_major
+							hint @ \Translate to Native
+							click? <=> foreign_translate? null
+							event_activate? => foreign_translate_activate?
 							sub /
-								<= Native_variant_title* $mol_view
-									sub / <= native_variant_title* \
-								<= Native_variant_descr* $mol_view
-									sub / <= native_variant_descr* \
-			<= Foreign_pane $mol_scroll sub /
-				<= Foreign_text $mol_textarea
-					hint @ \foreign language text
-					value? <=> foreign_text? \
-					bring => bring
-					submit? <=> foreign_translate_activate?
-				<= Foreign_links $mol_expander
-					title @ \Variants
-					content <= foreign_links /
-						<= Foreign_variant*0 $mol_button_minor
-							click? <=> foreign_variant_use* null
+								<= Foreign_translate_icon $mol_icon_transfer_left
+					<= Native_copy $mol_button_copy
+						text <= native_text
+					<= Native_alt_list $mol_view
+						sub <= native_alt_list /
+							<= Native_alt_link*0 $mol_link_iconed
+								title \
+								hint <= alt_title* \
+								uri <= native_alt_link* \
+				<= Foreign_bar $mol_view sub /
+					<= Foreign_tools $mol_view sub /
+						<= Native_translate $mol_button_major
+							hint @ \Translate to Foreign
+							click? <=> native_translate? null
+							event_activate? => native_translate_activate?
 							sub /
-								<= Foreign_variant_title* $mol_view
-									sub / <= foreign_variant_title* \
-								<= Foreign_variant_descr* $mol_view
-									sub / <= foreign_variant_descr* \
+								<= Native_translate_icon $mol_icon_transfer_right
+						<= Foreign_lang $mol_select
+							hint @ \Foreign Language
+							value? <=> foreign_lang? \en
+							dictionary <= langs *
+					<= Foreign_copy $mol_button_copy
+						text <= foreign_text
+					<= Foreign_alt_list $mol_view
+						sub <= foreign_alt_list /
+							<= Foreign_alt_link*0 $mol_link_iconed
+								title \
+								hint <= alt_title* \
+								uri <= foreign_alt_link* \
+			Body <= Body $mol_book2
+				bring <= bring
+				Placeholder null
+				pages /
+					<= Native_pane $mol_scroll sub /
+						<= Native_text $mol_textarea
+							hint @ \native language 
+							value? <=> native_text? \
+							submit? <=> native_translate_activate?
+						<= Native_links $mol_expander
+							title @ \Variants
+							content <= native_links /
+								<= Native_variant*0 $mol_button_minor
+									click? <=> native_variant_use* null
+									sub /
+										<= Native_variant_title* $mol_view
+											sub / <= native_variant_title* \
+										<= Native_variant_descr* $mol_view
+											sub / <= native_variant_descr* \
+					<= Foreign_pane $mol_scroll sub /
+						<= Foreign_text $mol_textarea
+							hint @ \foreign language text
+							value? <=> foreign_text? \
+							bring => bring
+							submit? <=> foreign_translate_activate?
+						<= Foreign_links $mol_expander
+							title @ \Variants
+							content <= foreign_links /
+								<= Foreign_variant*0 $mol_button_minor
+									click? <=> foreign_variant_use* null
+									sub /
+										<= Foreign_variant_title* $mol_view
+											sub / <= foreign_variant_title* \
+										<= Foreign_variant_descr* $mol_view
+											sub / <= foreign_variant_descr* \
 	native_variants? *string
 	foreign_variants? *string
