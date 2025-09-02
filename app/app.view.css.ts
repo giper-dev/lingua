@@ -81,13 +81,23 @@ namespace $.$$ {
 			},
 		},
 		
-		Foot: {
+		Main : {
+			
+			margin: [ 0, 'auto' ],
+			
 			flex: {
-				wrap: 'wrap',
+				basis: '120rem',
 			},
-			justify: {
-				content: 'space-between',
+			
+			Foot: {
+				flex: {
+					wrap: 'wrap',
+				},
+				justify: {
+					content: 'space-between',
+				},
 			},
+			
 		},
 		
 		Native_alt_list: {
