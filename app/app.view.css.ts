@@ -86,7 +86,7 @@ namespace $.$$ {
 			margin: [ 0, 'auto' ],
 			
 			flex: {
-				basis: '120rem',
+				basis: '100rem',
 			},
 			
 			Foot: {
