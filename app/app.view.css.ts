@@ -2,7 +2,7 @@ namespace $.$$ {
 	
 	const {calc} = $mol_style_func
 	
-	$mol_style_define( $hd_linguist_app, {
+	$mol_style_define( $gd_linguist_app, {
 		
 		Native_translate: {
 			flex: {

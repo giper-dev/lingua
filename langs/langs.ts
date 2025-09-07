@@ -1,6 +1,6 @@
 namespace $ {
 	
-	export let $hd_linguist_langs = {
+	export let $gd_linguist_langs = {
         af: "Afrikaans",
         ar: "Arabic",
         bn: "Bengali",

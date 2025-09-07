@@ -5,15 +5,15 @@ namespace $ {
 		params: ()=> ({ temperature: 0 })
 	})
 	
-	const $hd_linguist_variants_api = [
+	const $gd_linguist_variants_api = [
 		( $:$, native, lang, text )=> variator.shot({ native, lang, text }),
 	] as readonly( ( $: $, native: string, lang: string, text: string )=> Record< string, string > )[]
 	
-	export function $hd_linguist_variants( this: $, native: string, lang: string, text: string ) {
+	export function $gd_linguist_variants( this: $, native: string, lang: string, text: string ) {
 		
 		if( !text.trim() ) return {}
 		
-		const apis = $mol_array_shuffle_sync( $hd_linguist_variants_api )
+		const apis = $mol_array_shuffle_sync( $gd_linguist_variants_api )
 		for( const fetch of apis ) {
 			try {
 
