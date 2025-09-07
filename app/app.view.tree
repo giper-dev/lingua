@@ -8,7 +8,7 @@ $gd_linguist_app $mol_book2
 	pages /
 		<= Space $gd_web_frame
 		<= Main $mol_page
-			title <= title @ \Hyper Linguist
+			title <= title @ \Giper Linguist
 			tools /
 				<= Clear $mol_button_minor
 					hint @ \Clear texts
