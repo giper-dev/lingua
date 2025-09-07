@@ -3,7 +3,7 @@
 	"name": "Hyper Linguist",
 	"icons": [
 		{
-			"src": "../../../hd/linguist/logo/logo.png",
+			"src": "../../../gd/linguist/logo/logo.png",
 			"type": "image/png",
 			"sizes": "320x320"
 		}

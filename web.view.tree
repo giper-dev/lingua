@@ -71,8 +71,9 @@ $mol_frame $mol_embed_native
 	clipboard_read true
 	clipboard_write true
 
-$hd_space_frame $mol_frame
-	uri \https://space.hd4.ru/#mol_lights={lights}/current={current}
+$gd_web_frame $mol_frame
+	uri \https://web.giper.dev/#mol_lights={lights}/current={current}
+	- uri \http://localhost:9080/gd/web/bar/-/test.html#mol_lights={lights}/current={current}
 
 $mol_svg $mol_view
 	dom_name \svg
@@ -641,7 +642,7 @@ $mol_page $mol_view
 			dom_name \footer
 			sub <= foot /$mol_view
 
-$hd_linguist_app $mol_book2
+$gd_linguist_app $mol_book2
 	alt_services *string
 		Google \https://translate.google.com/?sl=auto&tl={lang}&text={text}
 		Yandex \https://translate.yandex.com/?target_lang={lang}&text={text}
@@ -649,7 +650,7 @@ $hd_linguist_app $mol_book2
 		<= Theme $mol_theme_auto
 	placeholders /
 	pages /
-		<= Space $hd_space_frame
+		<= Space $gd_web_frame
 		<= Main $mol_page
 			title <= title @ \Hyper Linguist
 			tools /
@@ -659,11 +660,11 @@ $hd_linguist_app $mol_book2
 					sub /
 						<= Clear_icon $mol_icon_trash_can_outline
 				<= Source $mol_link_source
-					uri \https://github.com/hd4ru/linguist
+					uri \https://github.com/giper-dev/linguist
 				<= Donate $mol_link_donate
 					uri \https://boosty.to/hyoo
 				<= Support $mol_link_support
-					uri \https://t.me/hd4ru/278
+					uri \https://t.me/giper-dev/278
 				<= Lights $mol_lights_toggle
 			foot /
 				<= Native_bar $mol_view sub /
