@@ -1,4 +1,4 @@
 include \/mol/offline/install
 
-deploy \/gd/linguist/app/manifest.json
-deploy \/gd/linguist/logo/
+deploy \/gd/lingua/app/manifest.json
+deploy \/gd/lingua/logo/

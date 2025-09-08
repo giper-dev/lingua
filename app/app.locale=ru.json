@@ -1,12 +1,12 @@
 {
-	"$gd_linguist_app_title": "Гипер Лингвист",
-	"$gd_linguist_app_Clear_hint": "Стереть тексты",
-	"$gd_linguist_app_Native_lang_hint": "Родной язык",
-	"$gd_linguist_app_Foreign_translate_hint": "Перевести на родной",
-	"$gd_linguist_app_Native_translate_hint": "Перевести на чужой",
-	"$gd_linguist_app_Foreign_lang_hint": "Чужой язык",
-	"$gd_linguist_app_Native_links_title": "Варианты",
-	"$gd_linguist_app_Native_text_hint": "На родном языке",
-	"$gd_linguist_app_Foreign_links_title": "Варианты",
-	"$gd_linguist_app_Foreign_text_hint": "На чужом языке"
+	"$gd_lingua_app_title": "Гипер Лингвист",
+	"$gd_lingua_app_Clear_hint": "Стереть тексты",
+	"$gd_lingua_app_Native_lang_hint": "Родной язык",
+	"$gd_lingua_app_Foreign_translate_hint": "Перевести на родной",
+	"$gd_lingua_app_Native_translate_hint": "Перевести на чужой",
+	"$gd_lingua_app_Foreign_lang_hint": "Чужой язык",
+	"$gd_lingua_app_Native_links_title": "Варианты",
+	"$gd_lingua_app_Native_text_hint": "На родном языке",
+	"$gd_lingua_app_Foreign_links_title": "Варианты",
+	"$gd_lingua_app_Foreign_text_hint": "На чужом языке"
 }

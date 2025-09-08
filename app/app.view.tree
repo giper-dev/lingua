@@ -1,4 +1,4 @@
-$gd_linguist_app $mol_book2
+$gd_lingua_app $mol_book2
 	alt_services *string
 		Google \https://translate.google.com/?sl=auto&tl={lang}&text={text}
 		Yandex \https://translate.yandex.com/?target_lang={lang}&text={text}
@@ -16,7 +16,7 @@ $gd_linguist_app $mol_book2
 					sub /
 						<= Clear_icon $mol_icon_trash_can_outline
 				<= Source $mol_link_source
-					uri \https://github.com/giper-dev/linguist
+					uri \https://github.com/giper-dev/lingua
 				<= Donate $mol_link_donate
 					uri \https://boosty.to/hyoo
 				<= Support $mol_link_support

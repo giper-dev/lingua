@@ -5,15 +5,15 @@ namespace $ {
 		params: ()=> ({ temperature: 0 })
 	})
 	
-	const $gd_linguist_translate_api = [
+	const $gd_lingua_translate_api = [
 		( $:$, lang, text )=> translator.shot({ lang, text }).text,
 	] as readonly( ( $: $, lang: string, text: string )=> string )[]
 	
-	export function $gd_linguist_translate( this: $, lang: string, text: string ) {
+	export function $gd_lingua_translate( this: $, lang: string, text: string ) {
 		
 		if( !text.trim() ) return ''
 		
-		const apis = $mol_array_shuffle_sync( $gd_linguist_translate_api )
+		const apis = $mol_array_shuffle_sync( $gd_lingua_translate_api )
 		for( const fetch of apis ) {
 			try {
 

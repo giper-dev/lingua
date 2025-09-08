@@ -1,4 +1,4 @@
-name: $gd_linguist
+name: $gd_lingua
 
 on:
   workflow_dispatch:
@@ -17,10 +17,10 @@ jobs:
     - uses: hyoo-ru/mam_build@master2
       with:
         token: ${{ secrets.GH_PAT }}
-        package: 'gd/linguist'
+        package: 'gd/lingua'
         modules: 'app'
     
     - uses: hyoo-ru/gh-deploy@v4.4.1
       if: github.ref == 'refs/heads/master'
       with:
-        folder: 'gd/linguist/app/-'
+        folder: 'gd/lingua/app/-'

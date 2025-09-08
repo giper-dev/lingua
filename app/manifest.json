@@ -3,7 +3,7 @@
 	"name": "Giper Linguist",
 	"icons": [
 		{
-			"src": "../../../gd/linguist/logo/logo.png",
+			"src": "../../../gd/lingua/logo/logo.png",
 			"type": "image/png",
 			"sizes": "320x320"
 		}

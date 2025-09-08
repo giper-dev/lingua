@@ -1,8 +1,8 @@
 namespace $.$$ {
-	export class $gd_linguist_app extends $.$gd_linguist_app {
+	export class $gd_lingua_app extends $.$gd_lingua_app {
 		
 		langs() {
-			return this.$.$gd_linguist_langs
+			return this.$.$gd_lingua_langs
 		}
 		
 		@ $mol_mem
@@ -29,7 +29,7 @@ namespace $.$$ {
 		
 		@ $mol_action
 		native_translate() {
-			const res = this.$.$gd_linguist_variants( this.native_lang(), this.foreign_lang(), this.native_text() )
+			const res = this.$.$gd_lingua_variants( this.native_lang(), this.foreign_lang(), this.native_text() )
 			this.foreign_variants( res )
 			this.foreign_text( Object.keys( res )[0] )
 			this.$.$mol_state_arg.commit()
@@ -38,7 +38,7 @@ namespace $.$$ {
 		
 		@ $mol_action
 		foreign_translate() {
-			const res = this.$.$gd_linguist_variants( this.native_lang(), this.native_lang(), this.foreign_text() )
+			const res = this.$.$gd_lingua_variants( this.native_lang(), this.native_lang(), this.foreign_text() )
 			this.native_variants( res )
 			this.native_text( Object.keys( res )[0] )
 			this.$.$mol_state_arg.commit()
