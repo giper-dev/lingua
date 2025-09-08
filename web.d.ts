@@ -3667,7 +3667,7 @@ declare namespace $.$$ {
 }
 
 declare namespace $ {
-    let $gd_linguist_langs: {
+    let $gd_lingua_langs: {
         af: string;
         ar: string;
         bn: string;
@@ -4109,7 +4109,7 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    function $gd_linguist_variants(this: $, native: string, lang: string, text: string): Record<string, string>;
+    function $gd_lingua_variants(this: $, native: string, lang: string, text: string): Record<string, string>;
 }
 
 declare namespace $ {
@@ -4125,312 +4125,312 @@ declare namespace $ {
 
 declare namespace $ {
 
-	type $mol_button_minor__hint_gd_linguist_app_1 = $mol_type_enforce<
+	type $mol_button_minor__hint_gd_lingua_app_1 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_minor['hint'] >
 	>
-	type $mol_button_minor__click_gd_linguist_app_2 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['clear'] >
+	type $mol_button_minor__click_gd_lingua_app_2 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['clear'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_gd_linguist_app_3 = $mol_type_enforce<
+	type $mol_button_minor__sub_gd_lingua_app_3 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_link_source__uri_gd_linguist_app_4 = $mol_type_enforce<
+	type $mol_link_source__uri_gd_lingua_app_4 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_source['uri'] >
 	>
-	type $mol_link_donate__uri_gd_linguist_app_5 = $mol_type_enforce<
+	type $mol_link_donate__uri_gd_lingua_app_5 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_donate['uri'] >
 	>
-	type $mol_link_support__uri_gd_linguist_app_6 = $mol_type_enforce<
+	type $mol_link_support__uri_gd_lingua_app_6 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_support['uri'] >
 	>
-	type $mol_select__hint_gd_linguist_app_7 = $mol_type_enforce<
+	type $mol_select__hint_gd_lingua_app_7 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_select['hint'] >
 	>
-	type $mol_select__value_gd_linguist_app_8 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_lang'] >
+	type $mol_select__value_gd_lingua_app_8 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_lang'] >
 		,
 		ReturnType< $mol_select['value'] >
 	>
-	type $mol_select__dictionary_gd_linguist_app_9 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['langs'] >
+	type $mol_select__dictionary_gd_lingua_app_9 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['langs'] >
 		,
 		ReturnType< $mol_select['dictionary'] >
 	>
-	type __gd_linguist_app_10 = $mol_type_enforce<
-		Parameters< $gd_linguist_app['foreign_translate_activate'] >[0]
+	type __gd_lingua_app_10 = $mol_type_enforce<
+		Parameters< $gd_lingua_app['foreign_translate_activate'] >[0]
 		,
-		Parameters< ReturnType< $gd_linguist_app['Foreign_translate'] >['event_activate'] >[0]
+		Parameters< ReturnType< $gd_lingua_app['Foreign_translate'] >['event_activate'] >[0]
 	>
-	type $mol_button_major__hint_gd_linguist_app_11 = $mol_type_enforce<
+	type $mol_button_major__hint_gd_lingua_app_11 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_major['hint'] >
 	>
-	type $mol_button_major__click_gd_linguist_app_12 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_translate'] >
+	type $mol_button_major__click_gd_lingua_app_12 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_translate'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_button_major__sub_gd_linguist_app_13 = $mol_type_enforce<
+	type $mol_button_major__sub_gd_lingua_app_13 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_major['sub'] >
 	>
-	type $mol_view__sub_gd_linguist_app_14 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_14 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_button_copy__text_gd_linguist_app_15 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_text'] >
+	type $mol_button_copy__text_gd_lingua_app_15 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_text'] >
 		,
 		ReturnType< $mol_button_copy['text'] >
 	>
-	type $mol_link_iconed__title_gd_linguist_app_16 = $mol_type_enforce<
+	type $mol_link_iconed__title_gd_lingua_app_16 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_iconed['title'] >
 	>
-	type $mol_link_iconed__hint_gd_linguist_app_17 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['alt_title'] >
+	type $mol_link_iconed__hint_gd_lingua_app_17 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['alt_title'] >
 		,
 		ReturnType< $mol_link_iconed['hint'] >
 	>
-	type $mol_link_iconed__uri_gd_linguist_app_18 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_alt_link'] >
+	type $mol_link_iconed__uri_gd_lingua_app_18 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_alt_link'] >
 		,
 		ReturnType< $mol_link_iconed['uri'] >
 	>
-	type $mol_view__sub_gd_linguist_app_19 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_alt_list'] >
+	type $mol_view__sub_gd_lingua_app_19 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_alt_list'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub_gd_linguist_app_20 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_20 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type __gd_linguist_app_21 = $mol_type_enforce<
-		Parameters< $gd_linguist_app['native_translate_activate'] >[0]
+	type __gd_lingua_app_21 = $mol_type_enforce<
+		Parameters< $gd_lingua_app['native_translate_activate'] >[0]
 		,
-		Parameters< ReturnType< $gd_linguist_app['Native_translate'] >['event_activate'] >[0]
+		Parameters< ReturnType< $gd_lingua_app['Native_translate'] >['event_activate'] >[0]
 	>
-	type $mol_button_major__hint_gd_linguist_app_22 = $mol_type_enforce<
+	type $mol_button_major__hint_gd_lingua_app_22 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_button_major['hint'] >
 	>
-	type $mol_button_major__click_gd_linguist_app_23 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_translate'] >
+	type $mol_button_major__click_gd_lingua_app_23 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_translate'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_button_major__sub_gd_linguist_app_24 = $mol_type_enforce<
+	type $mol_button_major__sub_gd_lingua_app_24 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_major['sub'] >
 	>
-	type $mol_select__hint_gd_linguist_app_25 = $mol_type_enforce<
+	type $mol_select__hint_gd_lingua_app_25 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_select['hint'] >
 	>
-	type $mol_select__value_gd_linguist_app_26 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_lang'] >
+	type $mol_select__value_gd_lingua_app_26 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_lang'] >
 		,
 		ReturnType< $mol_select['value'] >
 	>
-	type $mol_select__dictionary_gd_linguist_app_27 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['langs'] >
+	type $mol_select__dictionary_gd_lingua_app_27 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['langs'] >
 		,
 		ReturnType< $mol_select['dictionary'] >
 	>
-	type $mol_view__sub_gd_linguist_app_28 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_28 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_button_copy__text_gd_linguist_app_29 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_text'] >
+	type $mol_button_copy__text_gd_lingua_app_29 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_text'] >
 		,
 		ReturnType< $mol_button_copy['text'] >
 	>
-	type $mol_link_iconed__title_gd_linguist_app_30 = $mol_type_enforce<
+	type $mol_link_iconed__title_gd_lingua_app_30 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_link_iconed['title'] >
 	>
-	type $mol_link_iconed__hint_gd_linguist_app_31 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['alt_title'] >
+	type $mol_link_iconed__hint_gd_lingua_app_31 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['alt_title'] >
 		,
 		ReturnType< $mol_link_iconed['hint'] >
 	>
-	type $mol_link_iconed__uri_gd_linguist_app_32 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_alt_link'] >
+	type $mol_link_iconed__uri_gd_lingua_app_32 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_alt_link'] >
 		,
 		ReturnType< $mol_link_iconed['uri'] >
 	>
-	type $mol_view__sub_gd_linguist_app_33 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_alt_list'] >
+	type $mol_view__sub_gd_lingua_app_33 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_alt_list'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub_gd_linguist_app_34 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_34 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_textarea__hint_gd_linguist_app_35 = $mol_type_enforce<
+	type $mol_textarea__hint_gd_lingua_app_35 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_textarea['hint'] >
 	>
-	type $mol_textarea__value_gd_linguist_app_36 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_text'] >
+	type $mol_textarea__value_gd_lingua_app_36 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_text'] >
 		,
 		ReturnType< $mol_textarea['value'] >
 	>
-	type $mol_textarea__submit_gd_linguist_app_37 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_translate_activate'] >
+	type $mol_textarea__submit_gd_lingua_app_37 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_translate_activate'] >
 		,
 		ReturnType< $mol_textarea['submit'] >
 	>
-	type $mol_view__sub_gd_linguist_app_38 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_38 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub_gd_linguist_app_39 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_39 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_button_minor__click_gd_linguist_app_40 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_variant_use'] >
+	type $mol_button_minor__click_gd_lingua_app_40 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_variant_use'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_gd_linguist_app_41 = $mol_type_enforce<
+	type $mol_button_minor__sub_gd_lingua_app_41 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_expander__title_gd_linguist_app_42 = $mol_type_enforce<
+	type $mol_expander__title_gd_lingua_app_42 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_expander['title'] >
 	>
-	type $mol_expander__content_gd_linguist_app_43 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['native_links'] >
+	type $mol_expander__content_gd_lingua_app_43 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['native_links'] >
 		,
 		ReturnType< $mol_expander['content'] >
 	>
-	type $mol_scroll__sub_gd_linguist_app_44 = $mol_type_enforce<
+	type $mol_scroll__sub_gd_lingua_app_44 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_scroll['sub'] >
 	>
-	type $mol_textarea__hint_gd_linguist_app_45 = $mol_type_enforce<
+	type $mol_textarea__hint_gd_lingua_app_45 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_textarea['hint'] >
 	>
-	type $mol_textarea__value_gd_linguist_app_46 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_text'] >
+	type $mol_textarea__value_gd_lingua_app_46 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_text'] >
 		,
 		ReturnType< $mol_textarea['value'] >
 	>
-	type $mol_textarea__submit_gd_linguist_app_47 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_translate_activate'] >
+	type $mol_textarea__submit_gd_lingua_app_47 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_translate_activate'] >
 		,
 		ReturnType< $mol_textarea['submit'] >
 	>
-	type $mol_view__sub_gd_linguist_app_48 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_48 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub_gd_linguist_app_49 = $mol_type_enforce<
+	type $mol_view__sub_gd_lingua_app_49 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_button_minor__click_gd_linguist_app_50 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_variant_use'] >
+	type $mol_button_minor__click_gd_lingua_app_50 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_variant_use'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_gd_linguist_app_51 = $mol_type_enforce<
+	type $mol_button_minor__sub_gd_lingua_app_51 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_expander__title_gd_linguist_app_52 = $mol_type_enforce<
+	type $mol_expander__title_gd_lingua_app_52 = $mol_type_enforce<
 		string
 		,
 		ReturnType< $mol_expander['title'] >
 	>
-	type $mol_expander__content_gd_linguist_app_53 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['foreign_links'] >
+	type $mol_expander__content_gd_lingua_app_53 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['foreign_links'] >
 		,
 		ReturnType< $mol_expander['content'] >
 	>
-	type $mol_scroll__sub_gd_linguist_app_54 = $mol_type_enforce<
+	type $mol_scroll__sub_gd_lingua_app_54 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_scroll['sub'] >
 	>
-	type $mol_book2__bring_gd_linguist_app_55 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['bring'] >
+	type $mol_book2__bring_gd_lingua_app_55 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['bring'] >
 		,
 		ReturnType< $mol_book2['bring'] >
 	>
-	type $mol_book2__Placeholder_gd_linguist_app_56 = $mol_type_enforce<
+	type $mol_book2__Placeholder_gd_lingua_app_56 = $mol_type_enforce<
 		any
 		,
 		ReturnType< $mol_book2['Placeholder'] >
 	>
-	type $mol_book2__pages_gd_linguist_app_57 = $mol_type_enforce<
+	type $mol_book2__pages_gd_lingua_app_57 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_book2['pages'] >
 	>
-	type $mol_page__title_gd_linguist_app_58 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['title'] >
+	type $mol_page__title_gd_lingua_app_58 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['title'] >
 		,
 		ReturnType< $mol_page['title'] >
 	>
-	type $mol_page__tools_gd_linguist_app_59 = $mol_type_enforce<
+	type $mol_page__tools_gd_lingua_app_59 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_page['tools'] >
 	>
-	type $mol_page__foot_gd_linguist_app_60 = $mol_type_enforce<
+	type $mol_page__foot_gd_lingua_app_60 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_page['foot'] >
 	>
-	type $mol_page__Body_gd_linguist_app_61 = $mol_type_enforce<
-		ReturnType< $gd_linguist_app['Body'] >
+	type $mol_page__Body_gd_lingua_app_61 = $mol_type_enforce<
+		ReturnType< $gd_lingua_app['Body'] >
 		,
 		ReturnType< $mol_page['Body'] >
 	>
-	export class $gd_linguist_app extends $mol_book2 {
+	export class $gd_lingua_app extends $mol_book2 {
 		Theme( ): $mol_theme_auto
 		Space( ): $gd_web_frame
 		title( ): string
@@ -4445,7 +4445,7 @@ declare namespace $ {
 		langs( ): Record<string, any>
 		Native_lang( ): $mol_select
 		foreign_translate( next?: any ): any
-		foreign_translate_activate( next?: ReturnType< ReturnType< $gd_linguist_app['Foreign_translate'] >['event_activate'] > ): ReturnType< ReturnType< $gd_linguist_app['Foreign_translate'] >['event_activate'] >
+		foreign_translate_activate( next?: ReturnType< ReturnType< $gd_lingua_app['Foreign_translate'] >['event_activate'] > ): ReturnType< ReturnType< $gd_lingua_app['Foreign_translate'] >['event_activate'] >
 		Foreign_translate_icon( ): $mol_icon_transfer_left
 		Foreign_translate( ): $mol_button_major
 		Native_tools( ): $mol_view
@@ -4457,7 +4457,7 @@ declare namespace $ {
 		Native_alt_list( ): $mol_view
 		Native_bar( ): $mol_view
 		native_translate( next?: any ): any
-		native_translate_activate( next?: ReturnType< ReturnType< $gd_linguist_app['Native_translate'] >['event_activate'] > ): ReturnType< ReturnType< $gd_linguist_app['Native_translate'] >['event_activate'] >
+		native_translate_activate( next?: ReturnType< ReturnType< $gd_lingua_app['Native_translate'] >['event_activate'] > ): ReturnType< ReturnType< $gd_lingua_app['Native_translate'] >['event_activate'] >
 		Native_translate_icon( ): $mol_icon_transfer_right
 		Native_translate( ): $mol_button_major
 		foreign_lang( next?: string ): string
@@ -4481,7 +4481,7 @@ declare namespace $ {
 		Native_links( ): $mol_expander
 		Native_pane( ): $mol_scroll
 		foreign_text( next?: string ): string
-		bring( ): ReturnType< ReturnType< $gd_linguist_app['Foreign_text'] >['bring'] >
+		bring( ): ReturnType< ReturnType< $gd_lingua_app['Foreign_text'] >['bring'] >
 		Foreign_text( ): $mol_textarea
 		foreign_variant_use( id: any): any
 		foreign_variant_title( id: any): string
@@ -4506,7 +4506,7 @@ declare namespace $ {
 
 //# sourceMappingURL=app.view.tree.d.ts.map
 declare namespace $.$$ {
-    class $gd_linguist_app extends $.$gd_linguist_app {
+    class $gd_lingua_app extends $.$gd_lingua_app {
         langs(): {
             af: string;
             ar: string;

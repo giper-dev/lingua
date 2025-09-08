@@ -29,7 +29,7 @@
 	pack icon git \https://github.com/nin-jin/mol_icon.git
 \/mol/view
 	include \/mol/view/tree/test
-\/gd/linguist/app
+\/gd/lingua/app
 	include \/mol/offline/install
-	deploy \/gd/linguist/app/manifest.json
-	deploy \/gd/linguist/logo/
+	deploy \/gd/lingua/app/manifest.json
+	deploy \/gd/lingua/logo/
