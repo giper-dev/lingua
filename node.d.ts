@@ -3924,7 +3924,7 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    function $mol_array_shuffle<Item>(array: readonly Item[]): Item[];
+    function $mol_array_shuffle<Item>(array: readonly Item[]): any[];
 }
 
 declare namespace $ {
@@ -4252,7 +4252,7 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    function $gd_lingua_variants(this: $, native: string, lang: string, text: string): Record<string, string>;
+    function $gd_lingua_variants(this: $, native: string, lang: string, text: string): any;
 }
 
 declare namespace $ {
