@@ -10899,6 +10899,11 @@ var $;
             message: Assistant,
         })),
     });
+    const RespFail = $mol_data_record({
+        error: $mol_data_record({
+            message: $mol_data_string,
+        }),
+    });
     class $mol_github_model extends $mol_object {
         names() {
             return this.$.$mol_github_model_polyglots;
@@ -11019,12 +11024,20 @@ var $;
                         return JSON.parse(message.content ?? 'null');
                     }
                     catch (error) {
-                        if ($mol_promise_like(error))
-                            $mol_fail_hidden(error);
-                        $mol_fail_log(error);
+                        const resp = error.cause;
+                        if (!resp)
+                            return $mol_fail_hidden(error);
+                        if (resp.code() === 429)
+                            continue;
+                        if (resp.code() === 400) {
+                            const message = RespFail(resp.json()).error.message;
+                            this.history([...history, { role: 'assistant', content: '📛 ' + message }]);
+                            $mol_fail(new Error(message));
+                        }
+                        $mol_fail_hidden(error);
                     }
                 }
-            return this.$.$mol_fail(new Error('No alive model'));
+            return this.$.$mol_fail(new Error('No alive token'));
         }
     }
     __decorate([
