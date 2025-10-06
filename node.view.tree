@@ -666,7 +666,7 @@ $gd_lingua_app $mol_book2
 				<= Donate $mol_link_donate
 					uri \https://boosty.to/hyoo
 				<= Support $mol_link_support
-					uri \https://t.me/giper-dev/278
+					uri \https://t.me/giper_web/278
 				<= Lights $mol_lights_toggle
 			foot /
 				<= Native_bar $mol_view sub /
