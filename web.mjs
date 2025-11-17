@@ -4465,7 +4465,7 @@ var $;
 })($ || ($ = {}));
 
 ;
-	($.$gd_web_frame) = class $gd_web_frame extends ($.$mol_frame) {
+	($.$giper_web_frame) = class $giper_web_frame extends ($.$mol_frame) {
 		uri(){
 			return "https://web.giper.dev/#mol_lights={lights}/current={current}/query={query}";
 		}
@@ -4481,7 +4481,7 @@ var $;
 (function ($) {
     var $$;
     (function ($$) {
-        class $gd_web_frame extends $.$gd_web_frame {
+        class $giper_web_frame extends $.$giper_web_frame {
             uri() {
                 return super.uri()
                     .replace('{lights}', String(this.$.$mol_lights()))
@@ -4491,8 +4491,8 @@ var $;
         }
         __decorate([
             $mol_mem
-        ], $gd_web_frame.prototype, "uri", null);
-        $$.$gd_web_frame = $gd_web_frame;
+        ], $giper_web_frame.prototype, "uri", null);
+        $$.$giper_web_frame = $giper_web_frame;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
 
@@ -4500,7 +4500,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    $mol_style_attach("gd/web/frame/frame.view.css", "/* @keyframes gd_web_frame_show {\n\tfrom {\n\t\topacity: 0;\n\t}\n}\n\n[gd_web_frame] {\n\tanimation: 5s -1s ease-in gd_web_frame_show;\n} */\n");
+    $mol_style_attach("giper/web/frame/frame.view.css", "/* @keyframes giper_web_frame_show {\n\tfrom {\n\t\topacity: 0;\n\t}\n}\n\n[giper_web_frame] {\n\tanimation: 5s -1s ease-in giper_web_frame_show;\n} */\n");
 })($ || ($ = {}));
 
 ;
@@ -4512,7 +4512,7 @@ var $;
 (function ($) {
     var $$;
     (function ($$) {
-        $mol_style_define($gd_web_frame, {
+        $mol_style_define($giper_web_frame, {
             flex: {
                 basis: '4rem',
                 shrink: 0,
@@ -9711,17 +9711,17 @@ var $;
 })($ || ($ = {}));
 
 ;
-	($.$gd_lingua_app) = class $gd_lingua_app extends ($.$mol_book2) {
+	($.$giper_lingua_app) = class $giper_lingua_app extends ($.$mol_book2) {
 		Theme(){
 			const obj = new this.$.$mol_theme_auto();
 			return obj;
 		}
 		Space(){
-			const obj = new this.$.$gd_web_frame();
+			const obj = new this.$.$giper_web_frame();
 			return obj;
 		}
 		title(){
-			return (this.$.$mol_locale.text("$gd_lingua_app_title"));
+			return (this.$.$mol_locale.text("$giper_lingua_app_title"));
 		}
 		clear(next){
 			if(next !== undefined) return next;
@@ -9733,7 +9733,7 @@ var $;
 		}
 		Clear(){
 			const obj = new this.$.$mol_button_minor();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Clear_hint")));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Clear_hint")));
 			(obj.click) = (next) => ((this.clear(next)));
 			(obj.sub) = () => ([(this.Clear_icon())]);
 			return obj;
@@ -9766,7 +9766,7 @@ var $;
 		}
 		Native_lang(){
 			const obj = new this.$.$mol_select();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Native_lang_hint")));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Native_lang_hint")));
 			(obj.value) = (next) => ((this.native_lang(next)));
 			(obj.dictionary) = () => ((this.langs()));
 			return obj;
@@ -9784,7 +9784,7 @@ var $;
 		}
 		Foreign_translate(){
 			const obj = new this.$.$mol_button_major();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Foreign_translate_hint")));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Foreign_translate_hint")));
 			(obj.click) = (next) => ((this.foreign_translate(next)));
 			(obj.sub) = () => ([(this.Foreign_translate_icon())]);
 			return obj;
@@ -9842,7 +9842,7 @@ var $;
 		}
 		Native_translate(){
 			const obj = new this.$.$mol_button_major();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Native_translate_hint")));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Native_translate_hint")));
 			(obj.click) = (next) => ((this.native_translate(next)));
 			(obj.sub) = () => ([(this.Native_translate_icon())]);
 			return obj;
@@ -9853,7 +9853,7 @@ var $;
 		}
 		Foreign_lang(){
 			const obj = new this.$.$mol_select();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Foreign_lang_hint")));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Foreign_lang_hint")));
 			(obj.value) = (next) => ((this.foreign_lang(next)));
 			(obj.dictionary) = () => ((this.langs()));
 			return obj;
@@ -9901,7 +9901,7 @@ var $;
 		}
 		Native_text(){
 			const obj = new this.$.$mol_textarea();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Native_text_hint")));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Native_text_hint")));
 			(obj.value) = (next) => ((this.native_text(next)));
 			(obj.submit) = (next) => ((this.native_translate_activate(next)));
 			return obj;
@@ -9936,7 +9936,7 @@ var $;
 		}
 		Native_links(){
 			const obj = new this.$.$mol_expander();
-			(obj.title) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Native_links_title")));
+			(obj.title) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Native_links_title")));
 			(obj.content) = () => ((this.native_links()));
 			return obj;
 		}
@@ -9954,7 +9954,7 @@ var $;
 		}
 		Foreign_text(){
 			const obj = new this.$.$mol_textarea();
-			(obj.hint) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Foreign_text_hint")));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Foreign_text_hint")));
 			(obj.value) = (next) => ((this.foreign_text(next)));
 			(obj.submit) = (next) => ((this.foreign_translate_activate(next)));
 			return obj;
@@ -9989,7 +9989,7 @@ var $;
 		}
 		Foreign_links(){
 			const obj = new this.$.$mol_expander();
-			(obj.title) = () => ((this.$.$mol_locale.text("$gd_lingua_app_Foreign_links_title")));
+			(obj.title) = () => ((this.$.$mol_locale.text("$giper_lingua_app_Foreign_links_title")));
 			(obj.content) = () => ((this.foreign_links()));
 			return obj;
 		}
@@ -10040,60 +10040,60 @@ var $;
 			return {};
 		}
 	};
-	($mol_mem(($.$gd_lingua_app.prototype), "Theme"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Space"));
-	($mol_mem(($.$gd_lingua_app.prototype), "clear"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Clear_icon"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Clear"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Source"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Donate"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Support"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Lights"));
-	($mol_mem(($.$gd_lingua_app.prototype), "native_lang"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_lang"));
-	($mol_mem(($.$gd_lingua_app.prototype), "foreign_translate"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_translate_icon"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_translate"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_tools"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_copy"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Native_alt_link"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_alt_list"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_bar"));
-	($mol_mem(($.$gd_lingua_app.prototype), "native_translate"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_translate_icon"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_translate"));
-	($mol_mem(($.$gd_lingua_app.prototype), "foreign_lang"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_lang"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_tools"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_copy"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Foreign_alt_link"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_alt_list"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_bar"));
-	($mol_mem(($.$gd_lingua_app.prototype), "native_text"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_text"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Native_variant_title"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Native_variant_descr"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Native_variant"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_links"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Native_pane"));
-	($mol_mem(($.$gd_lingua_app.prototype), "foreign_text"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_text"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Foreign_variant_title"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Foreign_variant_descr"));
-	($mol_mem_key(($.$gd_lingua_app.prototype), "Foreign_variant"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_links"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Foreign_pane"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Body"));
-	($mol_mem(($.$gd_lingua_app.prototype), "Main"));
-	($mol_mem(($.$gd_lingua_app.prototype), "native_variants"));
-	($mol_mem(($.$gd_lingua_app.prototype), "foreign_variants"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Theme"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Space"));
+	($mol_mem(($.$giper_lingua_app.prototype), "clear"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Clear_icon"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Clear"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Source"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Donate"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Support"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Lights"));
+	($mol_mem(($.$giper_lingua_app.prototype), "native_lang"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_lang"));
+	($mol_mem(($.$giper_lingua_app.prototype), "foreign_translate"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_translate_icon"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_translate"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_tools"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_copy"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Native_alt_link"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_alt_list"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_bar"));
+	($mol_mem(($.$giper_lingua_app.prototype), "native_translate"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_translate_icon"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_translate"));
+	($mol_mem(($.$giper_lingua_app.prototype), "foreign_lang"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_lang"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_tools"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_copy"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Foreign_alt_link"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_alt_list"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_bar"));
+	($mol_mem(($.$giper_lingua_app.prototype), "native_text"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_text"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Native_variant_title"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Native_variant_descr"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Native_variant"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_links"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Native_pane"));
+	($mol_mem(($.$giper_lingua_app.prototype), "foreign_text"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_text"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Foreign_variant_title"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Foreign_variant_descr"));
+	($mol_mem_key(($.$giper_lingua_app.prototype), "Foreign_variant"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_links"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Foreign_pane"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Body"));
+	($mol_mem(($.$giper_lingua_app.prototype), "Main"));
+	($mol_mem(($.$giper_lingua_app.prototype), "native_variants"));
+	($mol_mem(($.$giper_lingua_app.prototype), "foreign_variants"));
 
 
 ;
 "use strict";
 var $;
 (function ($) {
-    $.$gd_lingua_langs = {
+    $.$giper_lingua_langs = {
         af: "Afrikaans",
         ar: "Arabic",
         bn: "Bengali",
@@ -10632,13 +10632,13 @@ var $;
         rules: () => `You are assistent-translator. User sends you JSON with target language code in "lang" field, native language con in "native" field and text in "text" field. You must reply with JSON where all unique variants of translation of whole user text to target language are represented as keys, and explanation in native language of diffrence of variant meaning with other is represented as value. The most accurate variant of translation of whole user text must be first. Don't ask any questions or do something other than translation. Don't use tools. Be sure translation have same meaning.`,
         params: () => ({ temperature: 0 })
     });
-    const $gd_lingua_variants_api = [
+    const $giper_lingua_variants_api = [
         ($, native, lang, text) => variator.shot({ native, lang, text }),
     ];
-    function $gd_lingua_variants(native, lang, text) {
+    function $giper_lingua_variants(native, lang, text) {
         if (!text.trim())
             return {};
-        const apis = $mol_array_shuffle_sync($gd_lingua_variants_api);
+        const apis = $mol_array_shuffle_sync($giper_lingua_variants_api);
         for (const fetch of apis) {
             try {
                 return fetch(this, native, lang, text);
@@ -10651,7 +10651,7 @@ var $;
         }
         throw new Error('No alive API');
     }
-    $_1.$gd_lingua_variants = $gd_lingua_variants;
+    $_1.$giper_lingua_variants = $giper_lingua_variants;
 })($ || ($ = {}));
 
 ;
@@ -10777,9 +10777,9 @@ var $;
 (function ($) {
     var $$;
     (function ($$) {
-        class $gd_lingua_app extends $.$gd_lingua_app {
+        class $giper_lingua_app extends $.$giper_lingua_app {
             langs() {
-                return this.$.$gd_lingua_langs;
+                return this.$.$giper_lingua_langs;
             }
             native_lang(next) {
                 const local = this.$.$mol_state_local.value('native_lang', next);
@@ -10796,14 +10796,14 @@ var $;
                 return this.$.$mol_state_arg.value('foreign_text', next) ?? '';
             }
             native_translate() {
-                const res = this.$.$gd_lingua_variants(this.native_lang(), this.foreign_lang(), this.native_text());
+                const res = this.$.$giper_lingua_variants(this.native_lang(), this.foreign_lang(), this.native_text());
                 this.foreign_variants(res);
                 this.foreign_text(Object.keys(res)[0]);
                 this.$.$mol_state_arg.commit();
                 this.Foreign_pane().dom_node().scrollIntoView({ behavior: 'smooth' });
             }
             foreign_translate() {
-                const res = this.$.$gd_lingua_variants(this.native_lang(), this.native_lang(), this.foreign_text());
+                const res = this.$.$giper_lingua_variants(this.native_lang(), this.native_lang(), this.foreign_text());
                 this.native_variants(res);
                 this.native_text(Object.keys(res)[0]);
                 this.$.$mol_state_arg.commit();
@@ -10863,41 +10863,41 @@ var $;
         }
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "native_lang", null);
+        ], $giper_lingua_app.prototype, "native_lang", null);
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "foreign_lang", null);
+        ], $giper_lingua_app.prototype, "foreign_lang", null);
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "native_text", null);
+        ], $giper_lingua_app.prototype, "native_text", null);
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "foreign_text", null);
+        ], $giper_lingua_app.prototype, "foreign_text", null);
         __decorate([
             $mol_action
-        ], $gd_lingua_app.prototype, "native_translate", null);
+        ], $giper_lingua_app.prototype, "native_translate", null);
         __decorate([
             $mol_action
-        ], $gd_lingua_app.prototype, "foreign_translate", null);
+        ], $giper_lingua_app.prototype, "foreign_translate", null);
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "native_links", null);
+        ], $giper_lingua_app.prototype, "native_links", null);
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "foreign_links", null);
+        ], $giper_lingua_app.prototype, "foreign_links", null);
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "native_alt_list", null);
+        ], $giper_lingua_app.prototype, "native_alt_list", null);
         __decorate([
             $mol_mem
-        ], $gd_lingua_app.prototype, "foreign_alt_list", null);
+        ], $giper_lingua_app.prototype, "foreign_alt_list", null);
         __decorate([
             $mol_mem_key
-        ], $gd_lingua_app.prototype, "native_alt_link", null);
+        ], $giper_lingua_app.prototype, "native_alt_link", null);
         __decorate([
             $mol_mem_key
-        ], $gd_lingua_app.prototype, "foreign_alt_link", null);
-        $$.$gd_lingua_app = $gd_lingua_app;
+        ], $giper_lingua_app.prototype, "foreign_alt_link", null);
+        $$.$giper_lingua_app = $giper_lingua_app;
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));
 
@@ -10908,7 +10908,7 @@ var $;
     var $$;
     (function ($$) {
         const { calc } = $mol_style_func;
-        $mol_style_define($gd_lingua_app, {
+        $mol_style_define($giper_lingua_app, {
             Native_translate: {
                 flex: {
                     basis: '2rem',

@@ -71,9 +71,9 @@ $mol_frame $mol_embed_native
 	clipboard_read true
 	clipboard_write true
 
-$gd_web_frame $mol_frame
+$giper_web_frame $mol_frame
 	uri \https://web.giper.dev/#mol_lights={lights}/current={current}/query={query}
-	- uri \http://localhost:9080/gd/web/bar/-/test.html#mol_lights={lights}/current={current}/query={query}
+	- uri \http://localhost:9080/giper/web/bar/-/test.html#mol_lights={lights}/current={current}/query={query}
 	query \
 
 $mol_svg $mol_view
@@ -640,7 +640,7 @@ $mol_page $mol_view
 			dom_name \footer
 			sub <= foot /$mol_view
 
-$gd_lingua_app $mol_book2
+$giper_lingua_app $mol_book2
 	alt_services *string
 		Google \https://translate.google.com/?sl=auto&tl={lang}&text={text}
 		Yandex \https://translate.yandex.com/?target_lang={lang}&text={text}
@@ -648,7 +648,7 @@ $gd_lingua_app $mol_book2
 		<= Theme $mol_theme_auto
 	placeholders /
 	pages /
-		<= Space $gd_web_frame
+		<= Space $giper_web_frame
 		<= Main $mol_page
 			title <= title @ \Giper Lingua
 			tools /
