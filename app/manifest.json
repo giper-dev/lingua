@@ -3,7 +3,7 @@
 	"name": "Giper Lingua",
 	"icons": [
 		{
-			"src": "../../../gd/lingua/logo/logo.png",
+			"src": "../../../giper/lingua/logo/logo.png",
 			"type": "image/png",
 			"sizes": "320x320"
 		}

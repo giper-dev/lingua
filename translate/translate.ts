@@ -5,15 +5,15 @@ namespace $ {
 		params: ()=> ({ temperature: 0 })
 	})
 	
-	const $gd_lingua_translate_api = [
+	const $giper_lingua_translate_api = [
 		( $:$, lang, text )=> translator.shot({ lang, text }).text,
 	] as readonly( ( $: $, lang: string, text: string )=> string )[]
 	
-	export function $gd_lingua_translate( this: $, lang: string, text: string ) {
+	export function $giper_lingua_translate( this: $, lang: string, text: string ) {
 		
 		if( !text.trim() ) return ''
 		
-		const apis = $mol_array_shuffle_sync( $gd_lingua_translate_api )
+		const apis = $mol_array_shuffle_sync( $giper_lingua_translate_api )
 		for( const fetch of apis ) {
 			try {
 

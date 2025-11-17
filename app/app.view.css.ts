@@ -2,7 +2,7 @@ namespace $.$$ {
 	
 	const {calc} = $mol_style_func
 	
-	$mol_style_define( $gd_lingua_app, {
+	$mol_style_define( $giper_lingua_app, {
 		
 		Native_translate: {
 			flex: {

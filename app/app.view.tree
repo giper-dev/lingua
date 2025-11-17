@@ -1,4 +1,4 @@
-$gd_lingua_app $mol_book2
+$giper_lingua_app $mol_book2
 	alt_services *string
 		Google \https://translate.google.com/?sl=auto&tl={lang}&text={text}
 		Yandex \https://translate.yandex.com/?target_lang={lang}&text={text}
@@ -6,7 +6,7 @@ $gd_lingua_app $mol_book2
 		<= Theme $mol_theme_auto
 	placeholders /
 	pages /
-		<= Space $gd_web_frame
+		<= Space $giper_web_frame
 		<= Main $mol_page
 			title <= title @ \Giper Lingua
 			tools /

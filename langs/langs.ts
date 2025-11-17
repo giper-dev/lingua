@@ -1,6 +1,6 @@
 namespace $ {
 	
-	export let $gd_lingua_langs = {
+	export let $giper_lingua_langs = {
         af: "Afrikaans",
         ar: "Arabic",
         bn: "Bengali",
