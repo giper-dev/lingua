@@ -10890,29 +10890,29 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    function $mol_data_nullable(sub) {
+    function $mol_data_variant(...sub) {
         return $mol_data_setup((val) => {
-            if (val === null)
-                return null;
-            return sub(val);
+            const errors = [];
+            for (const type of sub) {
+                let hidden = $.$mol_fail_hidden;
+                try {
+                    $.$mol_fail = $.$mol_fail_hidden;
+                    return type(val);
+                }
+                catch (error) {
+                    $.$mol_fail = hidden;
+                    if (error instanceof $mol_data_error) {
+                        errors.push(error);
+                    }
+                    else {
+                        return $mol_fail_hidden(error);
+                    }
+                }
+            }
+            return $mol_fail(new $mol_data_error(`${val} is not any of variants`, {}, ...errors));
         }, sub);
     }
-    $.$mol_data_nullable = $mol_data_nullable;
-})($ || ($ = {}));
-
-;
-"use strict";
-var $;
-(function ($) {
-    function $mol_data_optional(sub, fallback) {
-        return $mol_data_setup((val) => {
-            if (val === undefined) {
-                return fallback?.();
-            }
-            return sub(val);
-        }, { sub, fallback });
-    }
-    $.$mol_data_optional = $mol_data_optional;
+    $.$mol_data_variant = $mol_data_variant;
 })($ || ($ = {}));
 
 ;
@@ -10943,29 +10943,29 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    function $mol_data_variant(...sub) {
+    function $mol_data_nullable(sub) {
         return $mol_data_setup((val) => {
-            const errors = [];
-            for (const type of sub) {
-                let hidden = $.$mol_fail_hidden;
-                try {
-                    $.$mol_fail = $.$mol_fail_hidden;
-                    return type(val);
-                }
-                catch (error) {
-                    $.$mol_fail = hidden;
-                    if (error instanceof $mol_data_error) {
-                        errors.push(error);
-                    }
-                    else {
-                        return $mol_fail_hidden(error);
-                    }
-                }
-            }
-            return $mol_fail(new $mol_data_error(`${val} is not any of variants`, {}, ...errors));
+            if (val === null)
+                return null;
+            return sub(val);
         }, sub);
     }
-    $.$mol_data_variant = $mol_data_variant;
+    $.$mol_data_nullable = $mol_data_nullable;
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    function $mol_data_optional(sub, fallback) {
+        return $mol_data_setup((val) => {
+            if (val === undefined) {
+                return fallback?.();
+            }
+            return sub(val);
+        }, { sub, fallback });
+    }
+    $.$mol_data_optional = $mol_data_optional;
 })($ || ($ = {}));
 
 ;
@@ -11281,13 +11281,25 @@ var $;
     $.$mol_github_model_polyglots = [
         'openai/gpt-4.1-mini',
     ];
+    const Text = $mol_data_record({
+        type: $mol_data_const('text'),
+        text: $mol_data_string,
+    });
+    const Image = $mol_data_record({
+        type: $mol_data_const('image_url'),
+        image_url: $mol_data_record({
+            url: $mol_data_string,
+        }),
+    });
+    const Content_item = $mol_data_variant(Text, Image);
+    const Content = $mol_data_variant($mol_data_string, $mol_data_array(Content_item));
     const System = $mol_data_record({
         role: $mol_data_const('system'),
-        content: $mol_data_string,
+        content: Content,
     });
     const Assistant = $mol_data_record({
         role: $mol_data_const('assistant'),
-        content: $mol_data_nullable($mol_data_string),
+        content: $mol_data_nullable(Content),
         tool_calls: $mol_data_optional($mol_data_array($mol_data_record({
             type: $mol_data_const('function'),
             id: $mol_data_string,
@@ -11299,12 +11311,12 @@ var $;
     });
     const User = $mol_data_record({
         role: $mol_data_const('user'),
-        content: $mol_data_string,
+        content: Content,
     });
     const Tool = $mol_data_record({
         role: $mol_data_const('tool'),
         tool_call_id: $mol_data_string,
-        content: $mol_data_string,
+        content: Content,
     });
     const Message = $mol_data_variant(Assistant, User, Tool);
     const Resp = $mol_data_record({
@@ -11317,6 +11329,13 @@ var $;
             message: $mol_data_string,
         }),
     });
+    function bloat_content(val) {
+        if (typeof val !== 'string')
+            val = JSON.stringify(val);
+        else if (val.startsWith('data:'))
+            return { type: 'image_url', image_url: { url: val } };
+        return { type: 'text', text: val };
+    }
     class $mol_github_model extends $mol_object {
         names() {
             return this.$.$mol_github_model_polyglots;
@@ -11354,27 +11373,27 @@ var $;
             fork.ask(prompt);
             return fork.response();
         }
-        ask(text) {
+        ask(chunks) {
             this.history([
                 ...this.history(),
                 {
                     role: "user",
-                    content: JSON.stringify(text),
+                    content: chunks.map(bloat_content),
                 }
             ]);
             return this;
         }
-        tell(text) {
+        tell(chunks) {
             this.history([
                 ...this.history(),
                 {
                     role: "assistant",
-                    content: JSON.stringify(text),
+                    content: chunks.map(bloat_content),
                 }
             ]);
             return this;
         }
-        answer(id, data) {
+        answer(id, chunks) {
             const history = this.history();
             const index = 1 + history.findIndex(msg => msg.role === 'tool' && msg.tool_call_id === id);
             if (!index)
@@ -11384,7 +11403,7 @@ var $;
                 {
                     role: "tool",
                     tool_call_id: id,
-                    content: JSON.stringify(data),
+                    content: chunks.map(bloat_content),
                 },
                 ...history.slice(index),
             ]);
@@ -11434,7 +11453,9 @@ var $;
                         const resp = this.request(model, key);
                         const message = resp.choices[0].message;
                         this.history([...history, message]);
-                        return JSON.parse(message.content ?? 'null');
+                        if (typeof message.content === 'string')
+                            return JSON.parse(message.content);
+                        return message.content;
                     }
                     catch (error) {
                         const resp = error.cause;
@@ -11498,7 +11519,7 @@ var $;
         params: () => ({ temperature: 0 })
     });
     const $giper_lingua_variants_api = [
-        ($, native, lang, text) => variator.shot({ native, lang, text }),
+        ($, native, lang, text) => variator.shot([{ native, lang, text }]),
     ];
     function $giper_lingua_variants(native, lang, text) {
         if (!text.trim())
@@ -15405,39 +15426,16 @@ var $;
 var $;
 (function ($) {
     $mol_test({
-        'Is null'() {
-            $mol_data_nullable($mol_data_number)(null);
+        'Is first'() {
+            $mol_data_variant($mol_data_number, $mol_data_string)(0);
         },
-        'Is not null'() {
-            $mol_data_nullable($mol_data_number)(0);
+        'Is second'() {
+            $mol_data_variant($mol_data_number, $mol_data_string)('');
         },
-        'Is undefined'() {
+        'Is false'() {
             $mol_assert_fail(() => {
-                const Type = $mol_data_nullable($mol_data_number);
-                Type(undefined);
-            }, 'undefined is not a number');
-        },
-    });
-})($ || ($ = {}));
-
-;
-"use strict";
-var $;
-(function ($) {
-    const Age = $mol_data_optional($mol_data_number);
-    const Age_or_zero = $mol_data_optional($mol_data_number, () => 0);
-    $mol_test({
-        'Is not present'() {
-            $mol_assert_equal(Age(undefined), undefined);
-        },
-        'Is present'() {
-            $mol_assert_equal(Age(0), 0);
-        },
-        'Fallbacked'() {
-            $mol_assert_equal(Age_or_zero(undefined), 0);
-        },
-        'Is null'() {
-            $mol_assert_fail(() => Age(null), 'null is not a number');
+                $mol_data_variant($mol_data_number, $mol_data_string)(false);
+            }, 'false is not any of variants');
         },
     });
 })($ || ($ = {}));
@@ -15476,16 +15474,39 @@ var $;
 var $;
 (function ($) {
     $mol_test({
-        'Is first'() {
-            $mol_data_variant($mol_data_number, $mol_data_string)(0);
+        'Is null'() {
+            $mol_data_nullable($mol_data_number)(null);
         },
-        'Is second'() {
-            $mol_data_variant($mol_data_number, $mol_data_string)('');
+        'Is not null'() {
+            $mol_data_nullable($mol_data_number)(0);
         },
-        'Is false'() {
+        'Is undefined'() {
             $mol_assert_fail(() => {
-                $mol_data_variant($mol_data_number, $mol_data_string)(false);
-            }, 'false is not any of variants');
+                const Type = $mol_data_nullable($mol_data_number);
+                Type(undefined);
+            }, 'undefined is not a number');
+        },
+    });
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    const Age = $mol_data_optional($mol_data_number);
+    const Age_or_zero = $mol_data_optional($mol_data_number, () => 0);
+    $mol_test({
+        'Is not present'() {
+            $mol_assert_equal(Age(undefined), undefined);
+        },
+        'Is present'() {
+            $mol_assert_equal(Age(0), 0);
+        },
+        'Fallbacked'() {
+            $mol_assert_equal(Age_or_zero(undefined), 0);
+        },
+        'Is null'() {
+            $mol_assert_fail(() => Age(null), 'null is not a number');
         },
     });
 })($ || ($ = {}));
