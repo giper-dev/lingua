@@ -6,7 +6,7 @@ namespace $ {
 	})
 	
 	const $giper_lingua_translate_api = [
-		( $:$, lang, text )=> translator.shot({ lang, text }).text,
+		( $:$, lang, text )=> translator.shot([{ lang, text }]).text,
 	] as readonly( ( $: $, lang: string, text: string )=> string )[]
 	
 	export function $giper_lingua_translate( this: $, lang: string, text: string ) {

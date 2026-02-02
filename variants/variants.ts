@@ -6,7 +6,7 @@ namespace $ {
 	})
 	
 	const $giper_lingua_variants_api = [
-		( $:$, native, lang, text )=> variator.shot({ native, lang, text }),
+		( $:$, native, lang, text )=> variator.shot([{ native, lang, text }]),
 	] as readonly( ( $: $, native: string, lang: string, text: string )=> Record< string, string > )[]
 	
 	export function $giper_lingua_variants( this: $, native: string, lang: string, text: string ) {
