@@ -10769,7 +10769,7 @@ var $;
         tool_call_id: $mol_data_string,
         content: Content,
     });
-    const Message = $mol_data_variant(Assistant, User, Tool);
+    const Message = $mol_data_variant(System, Assistant, User, Tool);
     const Resp = $mol_data_record({
         choices: $mol_data_array($mol_data_record({
             message: Assistant,
@@ -10797,6 +10797,10 @@ var $;
         tools() {
             return new Map();
         }
+        state(next) {
+            $mol_wire_solid();
+            return next ?? [];
+        }
         params(next) {
             $mol_wire_solid();
             return next ?? {};
@@ -10810,6 +10814,7 @@ var $;
                 names: $mol_const(this.names()),
                 rules: $mol_const(this.rules()),
                 tools: $mol_const(this.tools()),
+                state: () => this.state(),
             });
             fork.params(this.params());
             fork.history(this.history());
@@ -10868,6 +10873,7 @@ var $;
                 messages: [
                     { role: 'system', content: this.rules() },
                     ...this.history(),
+                    { role: 'system', content: this.state().map(bloat_content) },
                 ],
                 tools: [...this.tools()].map(([name, info]) => ({
                     type: "function",
@@ -10916,7 +10922,7 @@ var $;
                             continue;
                         if (resp.code() === 400) {
                             const message = RespFail(resp.json()).error.message;
-                            this.history([...history, { role: 'assistant', content: '📛 ' + message }]);
+                            this.history([...history, { role: 'system', content: '📛 ' + message }]);
                             $mol_fail(new Error(message));
                         }
                         $mol_fail_hidden(error);
@@ -10931,6 +10937,9 @@ var $;
     __decorate([
         $mol_memo.method
     ], $mol_github_model.prototype, "tools", null);
+    __decorate([
+        $mol_mem
+    ], $mol_github_model.prototype, "state", null);
     __decorate([
         $mol_mem
     ], $mol_github_model.prototype, "params", null);
